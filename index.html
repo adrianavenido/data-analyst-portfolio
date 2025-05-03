@@ -8,59 +8,74 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
   <script src="https://cdn.tailwindcss.com"></script>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet" />
+
+  <head>
+    <link rel="icon" type="image/x-icon" href="C:\Users\adria\Downloads\Adrian  (2).png">
+    <!-- If you are using a PNG or other image type, update the type attribute -->
+    <!-- <link rel="icon" type="image/png" href="favicon.png"> -->
+  </head>
+
   <style>
     body {
       font-family: 'Inter', sans-serif;
     }
   </style>
+
 </head>
 
 <body class="bg-white text-gray-900 leading-relaxed">
 
-  <header class="max-w-6xl mx-auto px-6 py-8 flex justify-between items-center">
-    <div class="flex items-center space-x-4">
-      <img src="Adrian  (2).png" alt="Data Analyst"
+  <header class="max-w-screen-xl mx-auto px-6 py-8 flex flex-col md:flex-row justify-between items-center">
+    <!-- Image and Name Section -->
+    <div class="flex flex-col items-center space-y-4 mb-6 md:mb-0">
+      <img src="C:\Users\adria\Downloads\Adrian  (2).png" alt="Data Analyst"
         class="rounded-full shadow-lg w-16 h-16 object-cover" />
       <span class="text-xl font-semibold">Data Analyst</span>
     </div>
-
-    <nav class="space-x-6 text-gray-700 font-semibold">
-      <a href="#work" class="hover:text-blue-600 transition">Work</a>
-      <a href="#about" class="hover:text-blue-600 transition">About</a>
-      <a href="#experience" class="hover:text-blue-600 transition">Experience</a>
-      <a href="#links" class="hover:text-blue-600 transition">Links</a>
-      <a href="#get-started" class="bg-black text-white px-4 py-2 rounded-full hover:bg-gray-800 transition">Get
-        Started</a>
+  
+    <!-- Navigation Section -->
+    <nav class="space-y-4 md:space-x-6 md:space-y-0 flex flex-col md:flex-row items-center text-gray-700 font-semibold">
+      <a href="#work" class="hover:text-blue-600 transition transform hover:scale-110 py-2 px-4 rounded-md">Work</a>
+      <a href="#about" class="hover:text-blue-600 transition transform hover:scale-110 py-2 px-4 rounded-md">About</a>
+      <a href="#experience" class="hover:text-blue-600 transition transform hover:scale-110 py-2 px-4 rounded-md">Experience</a>
+      <a href="#links" class="hover:text-blue-600 transition transform hover:scale-110 py-2 px-4 rounded-md">Links</a>
     </nav>
   </header>
-
-  <section class="max-w-6xl mx-auto px-6 py-16">
-    <div class="flex flex-col md:flex-row items-center md:items-start text-left">
-      <div class="md:w-3/5 lg:w-2/3">
+  
+  
+  
+  
+  <section class="max-w-screen-xl mx-auto px-6 py-16">
+    <div class="flex flex-col md:flex-row items-center md:items-start text-left w-full">
+      <div class="md:w-3/5 lg:w-2/3 w-full">
         <h2 class="text-4xl font-extrabold mb-4">Adrian Avenido</h2>
         <div class="flex items-center text-sm text-gray-700 mb-2">
           <span class="w-3 h-3 bg-green-500 rounded-full mr-2"></span>
           <p>Available for freelance work</p>
         </div>
-
+  
         <p class="max-w-xl text-gray-600 mb-6">
           Transforming complex data into clear insights for smarter business decisions.
         </p>
         <div class="space-x-4">
-          <a href="#get-started"
-            class="bg-black text-white px-6 py-3 text-lg rounded-full hover:bg-gray-800 transition">Get Started</a>
+          <a href="#get-started" class="bg-black text-white px-6 py-3 text-m rounded-full hover:bg-gray-800 transition">Get Started</a>
         </div>
       </div>
-      <div class="md:w-2/5 lg:w-1/3 md:pl-8 mt-8 md:mt-0">
-        <div class="w-80 h-80 rounded-full overflow-hidden shadow-lg">
-          <img src="Adrian  (2).png" alt="Data Analyst" class="w-full h-full object-cover" />
+      <div class="md:w-2/5 lg:w-1/3 md:pl-8 mt-8 md:mt-0 w-full">
+        <div class="w-100 h-100 rounded-full overflow-hidden shadow-lg mx-auto">
+          <img src="C:\Users\adria\Downloads\Adrian  (2).png" alt="Data Analyst" class="w-full h-full object-cover" />
         </div>
       </div>
     </div>
   </section>
-
-  <section class="max-w-6xl mx-auto px-6 py-12 text-justify">
+  
+  <section class="max-w-screen-xl mx-auto px-6 py-12 text-justify">
     <!-- Project 1 -->
+    <div class="flex items-center space-x-4 mb-4">
+      <div class="w-4 h-4 rounded-full bg-green-200"></div>
+      <h2 class="text-5xl text-gray-900">Recent Projects</h2>
+    </div>
+  
     <article class="mb-12">
       <h4 class="text-2xl font-semibold mb-4">Cash Application Automation</h4>
       <div class="grid grid-cols-1 md:grid-cols-2 gap-10">
@@ -70,17 +85,19 @@
             volume. This project automated the process, integrating finance systems to accelerate reconciliation of
             receivables and improve accuracy.
             <br /><br />
+          </p>
+  
           <div class="text-gray-600">
             <p><strong>Manual cash application for Walmart:</strong> This project automated the process, integrating
               finance systems to accelerate reconciliation of receivables and improve accuracy.</p>
-
+  
             <p><strong>Key Improvements:</strong></p>
             <ul class="list-disc pl-6">
               <li>Reduced manual processing time by over 80%</li>
               <li>Improved matching accuracy and reduced financial discrepancies</li>
               <li>Enabled faster closing of books and reduced backlog</li>
             </ul>
-
+  
             <p><strong>Technologies Used:</strong></p>
             <ul class="list-disc pl-6">
               <li>Power Automate for workflow automation</li>
@@ -88,6 +105,7 @@
             </ul>
           </div>
           <br>
+  
           <div>
             <table class="w-full text-gray-600 text-sm">
               <tr>
@@ -104,8 +122,6 @@
                     class="text-blue-600 hover:text-blue-800" target="_blank">See sample code</a></td>
               </tr>
             </table>
-
-
           </div>
         </div>
         <div class="flex flex-col space-y-6">
@@ -113,25 +129,22 @@
             alt="Cash Application Automation" class="w-full h-auto rounded-md shadow-md" />
           <img src="https://framerusercontent.com/images/1mmewAvBFU9a5XFIcaDMfJ9bL4.webp"
             alt="Cash Application Automation" class="w-full h-auto rounded-md shadow-md" />
-          <img src="https://framerusercontent.com/images/1mmewAvBFU9a5XFIcaDMfJ9bL4.webp"
-            alt="Cash Application Automation" class="w-full h-auto rounded-md shadow-md" />
+
         </div>
       </div>
     </article>
-  </section>
-
-  <section class="max-w-6xl mx-auto px-6 py-12 text-justify">
-    <!-- Project 1 -->
+  
     <article class="mb-12">
-      <h4 class="text-2xl font-semibold mb-4">Employee Scorecard Automation </h4>
+      <h4 class="text-2xl font-semibold mb-4">Employee Scorecard Automation</h4>
       <div class="grid grid-cols-1 md:grid-cols-2 gap-10">
         <div>
-          <p class="text-gray-600 mb-4">
+          <p class="text-gray-600 max-w-2xl">
             Creating individual scorecards manually was time-consuming and error-prone. This project automated scorecard
             generation by aligning data sources and KPI metrics across roles.
             <br /><br />
+          </p>
+  
           <div class="text-gray-600">
-
             <ul class="list-disc list-inside text-gray-600 mb-2">
               <li>Streamlined monthly scorecard generation</li>
               <li>Improved transparency in performance tracking</li>
@@ -144,6 +157,7 @@
             </ul>
           </div>
           <br>
+  
           <div>
             <table class="w-full text-gray-600 text-sm">
               <tr>
@@ -160,36 +174,28 @@
                     class="text-blue-600 hover:text-blue-800" target="_blank">See sample code</a></td>
               </tr>
             </table>
-
-
           </div>
         </div>
         <div class="flex flex-col space-y-6">
           <img src="https://framerusercontent.com/images/1mmewAvBFU9a5XFIcaDMfJ9bL4.webp"
-            alt="Cash Application Automation" class="w-full h-auto rounded-md shadow-md" />
+            alt="Employee Scorecard Automation" class="w-full h-auto rounded-md shadow-md" />
           <img src="https://framerusercontent.com/images/1mmewAvBFU9a5XFIcaDMfJ9bL4.webp"
-            alt="Cash Application Automation" class="w-full h-auto rounded-md shadow-md" />
-          <img src="https://framerusercontent.com/images/1mmewAvBFU9a5XFIcaDMfJ9bL4.webp"
-            alt="Cash Application Automation" class="w-full h-auto rounded-md shadow-md" />
+            alt="Employee Scorecard Automation" class="w-full h-auto rounded-md shadow-md" />
+
         </div>
       </div>
     </article>
-  </section>
-
-
-  <section class="max-w-6xl mx-auto px-6 py-12 text-justify">
-    <!-- Project 1 -->
+  
     <article class="mb-12">
       <h4 class="text-2xl font-semibold mb-4">Competency Assessment Generator</h4>
       <div class="grid grid-cols-1 md:grid-cols-2 gap-10">
         <div>
-          <p class="text-gray-600 mb-4">
+          <p class="ttext-gray-600">
             Evaluating competencies lacked standardization. This tool generates role-specific evaluation forms to
-            improve fairness and efficiency
+            improve fairness and efficiency.
+          </p>
+  
           <div class="text-gray-600">
-
-
-
             <ul class="list-disc pl-6">
               <li>Standardized evaluations across departments</li>
               <li>Reduced prep time by 90%</li>
@@ -202,6 +208,7 @@
             </ul>
           </div>
           <br>
+  
           <div>
             <table class="w-full text-gray-600 text-sm">
               <tr>
@@ -218,174 +225,125 @@
                     class="text-blue-600 hover:text-blue-800" target="_blank">See sample code</a></td>
               </tr>
             </table>
-
           </div>
         </div>
         <div class="flex flex-col space-y-6">
           <img src="https://framerusercontent.com/images/1mmewAvBFU9a5XFIcaDMfJ9bL4.webp"
-            alt="Cash Application Automation" class="w-full h-auto rounded-md shadow-md" />
+            alt="Competency Assessment Generator" class="w-full h-auto rounded-md shadow-md" />
           <img src="https://framerusercontent.com/images/1mmewAvBFU9a5XFIcaDMfJ9bL4.webp"
-            alt="Cash Application Automation" class="w-full h-auto rounded-md shadow-md" />
-          <img src="https://framerusercontent.com/images/1mmewAvBFU9a5XFIcaDMfJ9bL4.webp"
-            alt="Cash Application Automation" class="w-full h-auto rounded-md shadow-md" />
+            alt="Competency Assessment Generator" class="w-full h-auto rounded-md shadow-md" />
+
         </div>
       </div>
     </article>
   </section>
+  
 
-
-  <section class="max-w-6xl mx-auto px-6 py-12 text-justify">
-    <!-- Project 1 -->
-    <article class="mb-12">
-      <h4 class="text-2xl font-semibold mb-4">Billing Report Automation</h4>
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-10">
-        <div>
-          <p class="text-gray-600 mb-4">
-            Manual billing reports were error-prone and delayed. This automation standardized the process for accuracy
-            and timeliness.
-            <br /><br />
-          <div class="text-gray-600">
-
-
-            <p><strong>Key Improvements:</strong></p>
-            <ul class="list-disc pl-6">
-              <li>Reduced report prep time from hours to minutes</li>
-              <li>Improved accuracy and submission timelines</li>
-              <li>Increased client confidence</li>
-            </ul>
-            <p class="font-semibold">Tools & Integrations:</p>
-            <ul class="list-disc list-inside text-gray-600 mb-4">
-              <li>Power Automate for report transformation and delivery</li>
-              <li>Integration with time tracking and finance tools</li>
-            </ul>
-          </div>
-          <br>
-          <div>
-            <table class="w-full text-gray-600 text-sm">
-              <tr>
-                <td class="py-4 font-semibold text-gray-500 border-b border-gray-300">Role</td>
-                <td class="py-2 text-right border-b border-gray-300">Compliance Lead</td>
-              </tr>
-              <tr>
-                <td class="py-4 font-semibold text-gray-500 border-b border-gray-300">Deliverables</td>
-                <td class="py-2 text-right border-b border-gray-300">Compliance</td>
-              </tr>
-              <tr>
-                <td class="py-4 font-semibold text-gray-500 border-b border-gray-300">Visit Site</td>
-                <td class="py-2 text-right border-b border-gray-300"><a href="https://www.wizetemplates.com"
-                    class="text-blue-600 hover:text-blue-800" target="_blank">See sample code</a></td>
-              </tr>
-            </table>
-
-
-
-          </div>
-        </div>
-        <div class="flex flex-col space-y-6">
-          <img src="https://framerusercontent.com/images/1mmewAvBFU9a5XFIcaDMfJ9bL4.webp"
-            alt="Cash Application Automation" class="w-full h-auto rounded-md shadow-md" />
-          <img src="https://framerusercontent.com/images/1mmewAvBFU9a5XFIcaDMfJ9bL4.webp"
-            alt="Cash Application Automation" class="w-full h-auto rounded-md shadow-md" />
-          <img src="https://framerusercontent.com/images/1mmewAvBFU9a5XFIcaDMfJ9bL4.webp"
-            alt="Cash Application Automation" class="w-full h-auto rounded-md shadow-md" />
-        </div>
+  <section id="testimonials" class="py-12 px-4">
+  <div class="max-w-7xl w-full mx-auto">
+    
+    <!-- Left: Title and intro -->
+    <div class="mb-8">
+      <div class="flex items-center space-x-4 mb-4">
+        <div class="w-4 h-4 rounded-full bg-green-200"></div>
+        <h2 class="text-5xl text-gray-900">What others have to say</h2>
       </div>
-    </article>
-  </section>
-  <section id="testimonials" class="bg-gray-50 py-12">
-    <div class="max-w-6xl mx-auto px-6">
-      <h3 class="text-3xl font-bold mb-8 border-b border-gray-300 pb-2">What others have to say</h3>
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-        <blockquote class="bg-white p-6 rounded-lg shadow-md">
-          <p class="mb-4 italic">"Working alongside Catora was a fantastic experience. They fulfilled all my
-            expectations flawlessly, and the final results were beyond excellent."</p>
-          <div class="flex items-center space-x-4">
-            <img src="https://framerusercontent.com/images/sFJggTzla8eMLg8n1AbKDQlyulU.jpg" alt="John Adams"
-              class="w-12 h-12 rounded-full object-cover" />
-            <div>
-              <p class="font-semibold">John Adams</p>
-              <p class="text-sm text-gray-500">Marketing Director @ XYZ</p>
-            </div>
-          </div>
-        </blockquote>
-        <blockquote class="bg-white p-6 rounded-lg shadow-md">
-          <p class="mb-4 italic">“Loved working with Catora. They did everything exactly how I wished for and the
-            results couldn’t’ve been better."</p>
-          <div class="flex items-center space-x-4">
-            <img src="https://framerusercontent.com/images/LsJGvkbYbF1y4ifkFrjeNfRfzYM.jpg" alt="Alex James"
-              class="w-12 h-12 rounded-full object-cover" />
-            <div>
-              <p class="font-semibold">Alex James</p>
-              <p class="text-sm text-gray-500">Marketing Director @ ABC</p>
-            </div>
-          </div>
-        </blockquote>
-        <blockquote class="bg-white p-6 rounded-lg shadow-md">
-          <p class="mb-4 italic">"Catora was a pleasure to work with. They followed my instructions to the letter, and
-            the end results were absolutely outstanding."</p>
-          <div class="flex items-center space-x-4">
-            <img src="https://framerusercontent.com/images/wFehrFuPfFDRYLHsWp9PhWGKa6w.jpg" alt="Jane Doe"
-              class="w-12 h-12 rounded-full object-cover" />
-            <div>
-              <p class="font-semibold">Jane Doe</p>
-              <p class="text-sm text-gray-500">Marketing Director @ XYZ</p>
-            </div>
-          </div>
-        </blockquote>
-      </div>
-    </div>
-  </section>
-
-  <section class="max-w-6xl mx-auto px-6 py-12 flex justify-between items-start space-x-12">
-    <!-- Left side: Profile image and title -->
-    <div class="flex flex-col items-start space-y-4 w-2/2">
-      <h3 class="text-3xl font-bold mb-4">About Me</h3>
-      <div class="flex items-center space-x-5">
-        <img src="Adrian  (2).png" alt="Data Analyst"
-          class="rounded-full shadow-lg w-16 h-16 object-cover" />
-        <span class="text-3xl text-gray-600 ">Making sense of data, one insight at a time.</span>
-
-      </div>
-      <br>
-      <div class="space-x-4">
-        <a href="#get-started"
-          class="bg-black text-white px-6 py-3 text-lg rounded-full hover:bg-gray-800 transition">Get Started</a>
-      </div>
-    </div>
-
-    <!-- Right side: About Me text -->
-    <div id="about" class="w-1/2">
-
-      <p class="text-gray-600 mb-4 text-left">
-        <strong>Hey there! I'm Adrian,</strong> a freelance data analyst with a passion for turning raw numbers into
-        meaningful stories.
-        With years of hands-on experience in data visualization, statistical analysis, and reporting, I specialize in
-        helping businesses harness the power of their data to drive smarter decisions. Whether it's building intuitive
-        dashboards, uncovering hidden trends, or tracking performance KPIs, I bring clarity and strategy to every
-        dataset I touch.
+      <p class="text-gray-600">
+        Hear from the people I've worked with. Their words reflect the dedication and attention to detail I bring to every project.
       </p>
-      <p>
+    </div>
+
+    <!-- Right: Testimonials -->
+    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+      <blockquote class="bg-white p-6 rounded-lg shadow-md">
+        <p class="mb-4 italic">"Working alongside Catora was a fantastic experience. They fulfilled all my expectations flawlessly, and the final results were beyond excellent."</p>
+        <div class="flex items-center space-x-4">
+          <img src="https://framerusercontent.com/images/sFJggTzla8eMLg8n1AbKDQlyulU.jpg" alt="John Adams" class="w-12 h-12 rounded-full object-cover" />
+          <div>
+            <p class="font-semibold">John Adams</p>
+            <p class="text-sm text-gray-500">Marketing Director @ XYZ</p>
+          </div>
+        </div>
+      </blockquote>
+      
+      <blockquote class="bg-white p-6 rounded-lg shadow-md">
+        <p class="mb-4 italic">“Loved working with Catora. They did everything exactly how I wished for and the results couldn’t’ve been better."</p>
+        <div class="flex items-center space-x-4">
+          <img src="https://framerusercontent.com/images/LsJGvkbYbF1y4ifkFrjeNfRfzYM.jpg" alt="Alex James" class="w-12 h-12 rounded-full object-cover" />
+          <div>
+            <p class="font-semibold">Alex James</p>
+            <p class="text-sm text-gray-500">Marketing Director @ ABC</p>
+          </div>
+        </div>
+      </blockquote>
+
+      <blockquote class="bg-white p-6 rounded-lg shadow-md">
+        <p class="mb-4 italic">"Catora was a pleasure to work with. They followed my instructions to the letter, and the end results were absolutely outstanding."</p>
+        <div class="flex items-center space-x-4">
+          <img src="https://framerusercontent.com/images/wFehrFuPfFDRYLHsWp9PhWGKa6w.jpg" alt="Jane Doe" class="w-12 h-12 rounded-full object-cover" />
+          <div>
+            <p class="font-semibold">Jane Doe</p>
+            <p class="text-sm text-gray-500">Marketing Director @ XYZ</p>
+          </div>
+        </div>
+      </blockquote>
+    </div>
+
+  </div>
+</section>
+
+  
+  <section class="max-w-7xl w-full mx-auto px-6 py-12 flex flex-col md:flex-row gap-12 items-start">
+    <!-- Left side: Profile image and title -->
+    <div class="flex flex-col items-start space-y-4 md:w-1/2 w-full">
+
+        <div class="flex items-center space-x-4 mb-4">
+          <div class="w-4 h-4 rounded-full bg-green-200"></div>
+          <h2 class="text-5xl text-gray-900">About</h2>
+        </div>
+      <div class="flex items-center space-x-5">
+        <img src="C:\Users\adria\Downloads\Adrian  (2).png" alt="Data Analyst"
+          class="rounded-full shadow-lg w-16 h-16 object-cover" />
+        <span class="text-2xl text-gray-600">Making sense of data, one insight at a time.</span>
+      </div>
+      <div class="space-x-4 py-8">
+        <a href="#get-started"
+          class="bg-black text-white px-6 py-3 text-m rounded-full hover:bg-gray-800 transition">Get Started</a>
+      </div>
+    </div>
+  
+    <!-- Right side: About Me text -->
+    <div id="about" class="md:w-1/2 w-full space-y-4">
+      <p class="text-gray-600 text-left">
+        <strong>Hey there! I'm Adrian,</strong> a freelance data analyst with a passion for turning raw numbers into
+        meaningful stories. With years of hands-on experience in data visualization, statistical analysis, and reporting,
+        I specialize in helping businesses harness the power of their data to drive smarter decisions.
+      </p>
+      <p class="text-gray-600 text-left">
         I’ve worked across various industries, delivering tailored insights that empower teams to streamline operations,
         boost efficiency, and uncover growth opportunities. Tools like Excel, SQL, Python, and Power BI are my daily
         companions, but what sets me apart is my ability to translate complex findings into actionable strategies anyone
         can understand.
-      </p><br>
-      <p>
+      </p>
+      <p class="text-gray-600 text-left">
         I thrive in collaborative environments and believe great insights come from great communication. If you're
         looking for a data partner who combines technical know-how with a strategic mindset, let's connect—I'm currently
         open to freelance opportunities!
       </p>
     </div>
   </section>
+  
 
-
-  <section class="flex items-center justify-center min-h-screen px-4">
+  <section class="flex items-center justify-center py-12 px-4">
     <div class="max-w-7xl w-full flex flex-col md:flex-row gap-12">
 
       <!-- Description (left side) -->
-      <div class="md:w-1/2">
-        <h2 class="text-2xl font-semibold mb-4">Skills</h2>
-        <p class="text-neutral-700">
+      <div class="mb-10">
+        <div class="flex items-center space-x-4 mb-4">
+          <div class="w-4 h-4 rounded-full bg-green-200"></div>
+          <h2 class="text-5xl text-gray-900">Skills</h2>
+        </div>
+        <p class="text-gray-600 max-w-2xl">
           I work with a variety of tools and technologies to turn raw data into valuable insights. With experience in
           Excel, SQL, Python, and Tableau, I’m able to analyze, visualize, and present data in ways that support smart
           decision-making. These skills are at the heart of my expertise, helping businesses solve problems and make
@@ -396,30 +354,34 @@
       <!-- Skills as buttons (right side) -->
       <div class="md:w-1/2">
         <div class="flex flex-wrap gap-4 justify-start items-start">
-          <span class="bg-neutral-200 text-neutral-800 text-lg px-5 py-2 rounded-full shadow-sm">HTML5</span>
-          <span class="bg-neutral-200 text-neutral-800 text-lg px-5 py-2 rounded-full shadow-sm">CSS3</span>
-          <span class="bg-neutral-200 text-neutral-800 text-lg px-5 py-2 rounded-full shadow-sm">JavaScript</span>
-          <span class="bg-neutral-200 text-neutral-800 text-lg px-5 py-2 rounded-full shadow-sm">jQuery</span>
-          <span class="bg-neutral-200 text-neutral-800 text-lg px-5 py-2 rounded-full shadow-sm">Responsive Web
+          <span class="bg-neutral-100 text-neutral-800 text-m px-5 py-2 rounded-full shadow-sm">Excel</span>
+          <span class="bg-neutral-100 text-neutral-800 text-m px-5 py-2 rounded-full shadow-sm">SQL</span>
+          <span class="bg-neutral-100 text-neutral-800 text-m px-5 py-2 rounded-full shadow-sm">Python</span>
+          <span class="bg-neutral-100 text-neutral-800 text-m px-5 py-2 rounded-full shadow-sm">HTML5</span>
+          <span class="bg-neutral-100 text-neutral-800 text-m px-5 py-2 rounded-full shadow-sm">CSS3</span>
+          <span class="bg-neutral-100 text-neutral-800 text-m px-5 py-2 rounded-full shadow-sm">JavaScript</span>
+          <span class="bg-neutral-100 text-neutral-800 text-m px-5 py-2 rounded-full shadow-sm">jQuery</span>
+          <span class="bg-neutral-100 text-neutral-800 text-m px-5 py-2 rounded-full shadow-sm">Responsive Web
             Design</span>
-          <span class="bg-neutral-200 text-neutral-800 text-lg px-5 py-2 rounded-full shadow-sm">PHP</span>
-          <span class="bg-neutral-200 text-neutral-800 text-lg px-5 py-2 rounded-full shadow-sm">Adobe Photoshop</span>
-          <span class="bg-neutral-200 text-neutral-800 text-lg px-5 py-2 rounded-full shadow-sm">Bootstrap
+          <span class="bg-neutral-100 text-neutral-800 text-m px-5 py-2 rounded-full shadow-sm">PHP</span>
+          <span class="bg-neutral-100 text-neutral-800 text-m px-5 py-2 rounded-full shadow-sm">Adobe Photoshop</span>
+          <span class="bg-neutral-100 text-neutral-800 text-m px-5 py-2 rounded-full shadow-sm">Bootstrap
             Framework</span>
-          <span class="bg-neutral-200 text-neutral-800 text-lg px-5 py-2 rounded-full shadow-sm">Git Version
+          <span class="bg-neutral-100 text-neutral-800 text-2m px-5 py-2 rounded-full shadow-sm">Git Version
             Control</span>
-          <span class="bg-neutral-200 text-neutral-800 text-lg px-5 py-2 rounded-full shadow-sm">WordPress</span>
+          <span class="bg-neutral-100 text-neutral-800 text-m px-5 py-2 rounded-full shadow-sm">WordPress</span>
+          <span class="bg-neutral-100 text-neutral-800 text-m px-5 py-2 rounded-full shadow-sm">Shopify</span>
         </div>
       </div>
+
+      
 
     </div>
   </section>
 
 
 
-
-  <section
-    class="bg-neutral-100 text-neutral-900 font-sans antialiased flex items-center justify-center min-h-screen px-4">
+  <section class="text-neutral-900 font-sans antialiased flex items-center justify-center py-12 px-4">
 
     <div class="bg-white max-w-2xl w-full p-8 rounded-2xl shadow-xl border border-neutral-200">
       <div class="mb-6 text-center">
@@ -462,12 +424,14 @@
     </div>
 
   </section>
-
-  <footer class="bg-gray-800 text-white py-12">
-    <div class="max-w-6xl mx-auto px-6 text-center">
-      <p class="text-sm">&copy; 2025 Adrian Avenido. All rights reserved.</p>
+  <!-- Footer -->
+  <footer class="bg-gray-100 py-6 mt-10">
+    <div class="max-w-7xl mx-auto px-6 text-center text-sm text-gray-500">
+      &copy; 2025 Adrian Avenido. All rights reserved.
     </div>
   </footer>
+
+
 
 </body>
 

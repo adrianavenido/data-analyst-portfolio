@@ -1,4 +1,3 @@
-# portfolio
-My Data Analyst Portfolio Website
+# Data Analyst Portfolio
 
-This will be my first Portfolio to showcase my data analysis skills.
+This is my portfolio showcasing data projects.

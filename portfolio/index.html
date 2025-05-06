@@ -1,0 +1,445 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Adrian Avenido - Portfolio</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet" />
+
+  <head>
+    <link rel="icon" type="image/x-icon" href="company_logos/profile_pic.png">
+    <!-- If you are using a PNG or other image type, update the type attribute -->
+    <!-- <link rel="icon" type="image/png" href="favicon.png"> -->
+  </head>
+
+  <style>
+    body {
+      font-family: 'Inter', sans-serif;
+    }
+
+    /* Tailwind Custom Animation */
+    @keyframes marquee {
+      0% {
+        transform: translateX(0);
+      }
+
+      100% {
+        transform: translateX(-50%);
+      }
+    }
+
+    .animate-marquee {
+      animation: marquee 25s linear infinite;
+    }
+  </style>
+
+</head>
+
+<body class="bg-white text-gray-900 leading-relaxed">
+
+
+
+
+  <header class="max-w-screen-xl mx-auto px-6 py-8 flex flex-col md:flex-row justify-between items-center">
+    <!-- Image and Name Section -->
+    <div class="flex flex-col items-center space-y-4 mb-6 md:mb-0">
+      <img src="company_logos/profile_pic.png" alt="Data Analyst"
+        class="rounded-full shadow-lg w-16 h-16 object-cover" />
+      <span class="text-xl font-semibold">Data Analyst</span>
+    </div>
+
+    <!-- Navigation Section -->
+    <nav class="space-y-4 md:space-x-6 md:space-y-0 flex flex-col md:flex-row items-center text-gray-700 font-semibold">
+      <a href="#work" class="hover:text-blue-600 transition transform hover:scale-110 py-2 px-4 rounded-md">Work</a>
+      <a href="#about" class="hover:text-blue-600 transition transform hover:scale-110 py-2 px-4 rounded-md">About</a>
+      <a href="#experience"
+        class="hover:text-blue-600 transition transform hover:scale-110 py-2 px-4 rounded-md">Experience</a>
+      <a href="#links" class="hover:text-blue-600 transition transform hover:scale-110 py-2 px-4 rounded-md">Links</a>
+    </nav>
+  </header>
+
+
+
+
+  <section class="max-w-screen-xl mx-auto px-6 py-16">
+    <div class="flex flex-col md:flex-row items-center md:items-start text-left w-full">
+      <div class="md:w-3/5 lg:w-2/3 w-full">
+        <h2 class="text-4xl font-extrabold mb-4">Adrian Avenido</h2>
+        <div class="flex items-center text-sm text-gray-700 mb-2">
+          <span class="w-3 h-3 bg-green-500 rounded-full mr-2"></span>
+          <p>Available for freelance work</p>
+        </div>
+
+        <p class="max-w-xl text-4xl text-gray-700 mt-10">
+          Transforming complex data into clear insights for smarter business decisions.
+        </p>
+        <div class="space-x-4 mt-12">
+          <a href="#get-started"
+            class="bg-black text-white px-6 py-3 text-m rounded-full hover:bg-gray-800 transition">Get Started</a>
+        </div>
+      </div>
+      <div class="md:w-2/5 lg:w-1/3 md:pl-8 mt-8 md:mt-0 w-full">
+        <div class="w-100 h-100 rounded-full overflow-hidden shadow-lg mx-auto">
+          <img src="company_logos/profile_pic.png" alt="Data Analyst" class="w-full h-full object-cover" />
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+
+
+  <section class="trusted-by py-16 text-center">
+    <!-- Marquee Wrapper (full width) -->
+    <div class="w-full">
+      <!-- Marquee Content (infinite scrolling) -->
+      <div class="flex gap-16 animate-marquee w-max">
+        <!-- Logos wrapped in containers -->
+        <div class="logo-container w-13 h-9 flex items-center justify-center">
+          <img src="company_logos/sap.png" alt="SAP"
+            class="company-logo w-full h-full object-contain filter grayscale opacity-80 hover:filter-none hover:opacity-100 transition-all duration-300" />
+        </div>
+        <div class="logo-container w-13 h-9 flex items-center justify-center">
+          <img src="company_logos/oracle.png" alt="Oracle"
+            class="company-logo w-full h-full object-contain filter grayscale opacity-80 hover:filter-none hover:opacity-100 transition-all duration-300" />
+        </div>
+        <div class="logo-container w-13 h-9 flex items-center justify-center">
+          <img src="company_logos/philips lighting.png" alt="Oracle"
+            class="company-logo w-full h-full object-contain filter grayscale opacity-80 hover:filter-none hover:opacity-100 transition-all duration-300" />
+        </div>
+        <div class="logo-container w-13 h-9 flex items-center justify-center">
+          <img src="company_logos/sn.png" alt="Sleep Number"
+            class="company-logo w-full h-full object-contain filter grayscale opacity-80 hover:filter-none hover:opacity-100 transition-all duration-300" />
+        </div>
+        <div class="logo-container w-13 h-9 flex items-center justify-center">
+          <img src="company_logos/ricoh.png" alt="Ricoh"
+            class="company-logo w-full h-full object-contain filter grayscale opacity-80 hover:filter-none hover:opacity-100 transition-all duration-300" />
+        </div>
+        <div class="logo-container w-13 h-9 flex items-center justify-center">
+          <img src="company_logos/suntrust.png" alt="SunTrust"
+            class="company-logo w-full h-full object-contain filter grayscale opacity-80 hover:filter-none hover:opacity-100 transition-all duration-300" />
+        </div>
+        <div class="logo-container w-13 h-9 flex items-center justify-center">
+          <img src="company_logos/wells fargo.png" alt="Wells Fargo"
+            class="company-logo w-full h-full object-contain filter grayscale opacity-80 hover:filter-none hover:opacity-100 transition-all duration-300" />
+        </div>
+        <div class="logo-container w-13 h-9 flex items-center justify-center">
+          <img src="company_logos/virgin money.png" alt="Virgin Money"
+            class="company-logo w-full h-full object-contain filter grayscale opacity-80 hover:filter-none hover:opacity-100 transition-all duration-300" />
+        </div>
+        <div class="logo-container w-13 h-9 flex items-center justify-center">
+          <img src="company_logos/citibank.jpg" alt="Citibank"
+            class="company-logo w-full h-full object-contain filter grayscale opacity-80 hover:filter-none hover:opacity-100 transition-all duration-300" />
+        </div>
+        <div class="logo-container w-13 h-9 flex items-center justify-center">
+          <img src="company_logos/sap.png" alt="SAP"
+            class="company-logo w-full h-full object-contain filter grayscale opacity-80 hover:filter-none hover:opacity-100 transition-all duration-300" />
+        </div>
+        <div class="logo-container w-13 h-9 flex items-center justify-center">
+          <img src="company_logos/oracle.png" alt="Oracle"
+            class="company-logo w-full h-full object-contain filter grayscale opacity-80 hover:filter-none hover:opacity-100 transition-all duration-300" />
+        </div>
+        <div class="logo-container w-13 h-9 flex items-center justify-center">
+          <img src="company_logos/sn.png" alt="Sleep Number"
+            class="company-logo w-full h-full object-contain filter grayscale opacity-80 hover:filter-none hover:opacity-100 transition-all duration-300" />
+        </div>
+        <div class="logo-container w-13 h-9 flex items-center justify-center">
+          <img src="company_logos/ricoh.png" alt="Ricoh"
+            class="company-logo w-full h-full object-contain filter grayscale opacity-80 hover:filter-none hover:opacity-100 transition-all duration-300" />
+        </div>
+        <div class="logo-container w-13 h-9 flex items-center justify-center">
+          <img src="company_logos/suntrust.png" alt="SunTrust"
+            class="company-logo w-full h-full object-contain filter grayscale opacity-80 hover:filter-none hover:opacity-100 transition-all duration-300" />
+        </div>
+        <div class="logo-container w-13 h-9 flex items-center justify-center">
+          <img src="company_logos/wells fargo.png" alt="Wells Fargo"
+            class="company-logo w-full h-full object-contain filter grayscale opacity-80 hover:filter-none hover:opacity-100 transition-all duration-300" />
+        </div>
+        <div class="logo-container w-13 h-9 flex items-center justify-center">
+          <img src="company_logos/virgin money.png" alt="Virgin Money"
+            class="company-logo w-full h-full object-contain filter grayscale opacity-80 hover:filter-none hover:opacity-100 transition-all duration-300" />
+        </div>
+        <div class="logo-container w-13 h-9 flex items-center justify-center">
+          <img src="company_logos/citibank.jpg" alt="Citibank"
+            class="company-logo w-full h-full object-contain filter grayscale opacity-80 hover:filter-none hover:opacity-100 transition-all duration-300" />
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+
+  <!-- Recent Projects -->
+  <section id="work" class="max-w-screen-xl mx-auto px-6 py-12">
+    <div class="flex items-center space-x-4 mb-4">
+      <div class="w-4 h-4 rounded-full bg-green-200"></div>
+      <h2 class="text-5xl text-gray-900">Recent Projects</h2>
+    </div>
+
+    <!-- Project Section -->
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-10 mt-10">
+      <!-- Sticky Text Section -->
+      <div class="space-y-6 lg:sticky lg:top-10 self-start">
+        <h4 class="text-2xl font-semibold mb-4">Project 1</h4>
+        <p class="text-gray-600">
+          Manual Project 1 for Walmart involved significant time and risk of error due to high transaction volume. This
+          project automated the process, integrating finance systems to accelerate reconciliation of receivables and
+          improve accuracy.
+        </p>
+        <div class="text-gray-600 space-y-4">
+          <p><strong>Key Improvements:</strong></p>
+          <ul class="list-disc pl-6">
+            <li>Reduced manual processing time by over 80%</li>
+            <li>Improved matching accuracy and reduced financial discrepancies</li>
+            <li>Enabled faster closing of books and reduced backlog</li>
+          </ul>
+          <p><strong>Technologies Used:</strong></p>
+          <ul class="list-disc pl-6">
+            <li>Power Automate for workflow automation</li>
+            <li>Integration with internal finance systems and Walmart interfaces</li>
+          </ul>
+          <table class="w-full text-gray-600 text-sm mt-4">
+            <tr>
+              <td class="py-4 font-semibold text-gray-500 border-b border-gray-300">Role</td>
+              <td class="py-2 text-right border-b border-gray-300">Project 1 Specialist</td>
+            </tr>
+            <tr>
+              <td class="py-4 font-semibold text-gray-500 border-b border-gray-300">Deliverables</td>
+              <td class="py-2 text-right border-b border-gray-300">Project 1</td>
+            </tr>
+            <tr>
+              <td class="py-4 font-semibold text-gray-500 border-b border-gray-300">Visit Site</td>
+              <td class="py-2 text-right border-b border-gray-300">
+                <a href="https://www.wizetemplates.com" class="text-blue-600 hover:text-blue-800" target="_blank">See
+                  sample code</a>
+              </td>
+            </tr>
+          </table>
+        </div>
+      </div>
+
+      <!-- Scrollable Image Stack -->
+      <div class="space-y-10">
+        <img src="https://framerusercontent.com/images/1mmewAvBFU9a5XFIcaDMfJ9bL4.webp" alt="Step 1"
+          class="w-full h-auto rounded-md shadow-md">
+        <img src="https://framerusercontent.com/images/1mmewAvBFU9a5XFIcaDMfJ9bL4.webp" alt="Step 2"
+          class="w-full h-auto rounded-md shadow-md">
+        <img src="https://framerusercontent.com/images/1mmewAvBFU9a5XFIcaDMfJ9bL4.webp" alt="Step 3"
+          class="w-full h-auto rounded-md shadow-md">
+      </div>
+    </div>
+  </section>
+
+
+
+
+
+
+  <section id="testimonials" class="py-16 px-4">
+    <div class="max-w-7xl w-full mx-auto">
+
+      <!-- Left: Title and intro -->
+      <div class="mb-8">
+        <div class="flex items-center space-x-4 mb-4">
+          <div class="w-4 h-4 rounded-full bg-green-200"></div>
+          <h2 class="text-5xl text-gray-900">What others have to say</h2>
+        </div>
+        <p class="text-gray-600">
+          Hear from the people I've worked with. Their words reflect the dedication and attention to detail I bring to
+          every project.
+        </p>
+      </div>
+
+      <!-- Right: Testimonials -->
+      <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 py-16 px-4">
+        <blockquote class="bg-white p-6 rounded-lg shadow-md">
+          <p class="mb-4 italic">"Working alongside Catora was a fantastic experience. They fulfilled all my
+            expectations flawlessly, and the final results were beyond excellent."</p>
+          <div class="flex items-center space-x-4">
+            <img src="https://framerusercontent.com/images/sFJggTzla8eMLg8n1AbKDQlyulU.jpg" alt="John Adams"
+              class="w-12 h-12 rounded-full object-cover" />
+            <div>
+              <p class="font-semibold">John Adams</p>
+              <p class="text-sm text-gray-500">Marketing Director @ XYZ</p>
+            </div>
+          </div>
+        </blockquote>
+
+        <blockquote class="bg-white p-6 rounded-lg shadow-md">
+          <p class="mb-4 italic">“Loved working with Catora. They did everything exactly how I wished for and the
+            results couldn’t’ve been better."</p>
+          <div class="flex items-center space-x-4">
+            <img src="https://framerusercontent.com/images/LsJGvkbYbF1y4ifkFrjeNfRfzYM.jpg" alt="Alex James"
+              class="w-12 h-12 rounded-full object-cover" />
+            <div>
+              <p class="font-semibold">Alex James</p>
+              <p class="text-sm text-gray-500">Marketing Director @ ABC</p>
+            </div>
+          </div>
+        </blockquote>
+
+        <blockquote class="bg-white p-6 rounded-lg shadow-md">
+          <p class="mb-4 italic">"Catora was a pleasure to work with. They followed my instructions to the letter, and
+            the end results were absolutely outstanding."</p>
+          <div class="flex items-center space-x-4">
+            <img src="https://framerusercontent.com/images/wFehrFuPfFDRYLHsWp9PhWGKa6w.jpg" alt="Jane Doe"
+              class="w-12 h-12 rounded-full object-cover" />
+            <div>
+              <p class="font-semibold">Jane Doe</p>
+              <p class="text-sm text-gray-500">Marketing Director @ XYZ</p>
+            </div>
+          </div>
+        </blockquote>
+      </div>
+
+    </div>
+  </section>
+
+
+  <section class="max-w-7xl w-full mx-auto px-6 py-12 flex flex-col md:flex-row gap-12 items-start">
+    <!-- Left side: Profile image and title -->
+    <div class="flex flex-col items-start space-y-4 md:w-1/2 w-full sticky top">
+
+      <div class="flex items-center space-x-4 mb-4">
+        <div class="w-4 h-4 rounded-full bg-green-200"></div>
+        <h2 class="text-5xl text-gray-900">About</h2>
+      </div>
+      <div class="flex items-center space-x-5">
+        <img src="company_logos/profile_pic.png" alt="Data Analyst"
+          class="rounded-full shadow-lg w-16 h-16 object-cover" />
+        <span class="text-2xl text-gray-600">Making sense of data, one insight at a time.</span>
+      </div>
+      <div class="space-x-4 py-8">
+        <a href="#get-started"
+          class="bg-black text-white px-6 py-3 text-m rounded-full hover:bg-gray-800 transition">Get Started</a>
+      </div>
+    </div>
+
+    <!-- Right side: About Me text -->
+    <div id="about" class="md:w-1/2 w-full space-y-4">
+      <p class="text-gray-600 text-left">
+        <strong>Hey there! I'm Adrian,</strong> a freelance data analyst with a passion for turning raw numbers into
+        meaningful stories. With years of hands-on experience in data visualization, statistical analysis, and
+        reporting,
+        I specialize in helping businesses harness the power of their data to drive smarter decisions.
+      </p>
+      <p class="text-gray-600 text-left">
+        I’ve worked across various industries, delivering tailored insights that empower teams to streamline operations,
+        boost efficiency, and uncover growth opportunities. Tools like Excel, SQL, Python, and Power BI are my daily
+        companions, but what sets me apart is my ability to translate complex findings into actionable strategies anyone
+        can understand.
+      </p>
+      <p class="text-gray-600 text-left">
+        I thrive in collaborative environments and believe great insights come from great communication. If you're
+        looking for a data partner who combines technical know-how with a strategic mindset, let's connect—I'm currently
+        open to freelance opportunities!
+      </p>
+    </div>
+  </section>
+
+
+  <section class="flex items-center justify-center py-12 px-4 mt-12 mb-12">
+    <div class="max-w-7xl w-full flex flex-col md:flex-row gap-12 mt-12 mb-12">
+
+      <!-- Description (left side) -->
+      <div>
+        <div class="flex items-center space-x-4 mb-4">
+          <div class="w-4 h-4 rounded-full bg-green-200"></div>
+          <h2 class="text-5xl text-gray-900">Skills</h2>
+        </div>
+        <p class="text-gray-600 max-w-2xl">
+          I work with a variety of tools and technologies to turn raw data into valuable insights. With experience in
+          Excel, SQL, Python, and Tableau, I’m able to analyze, visualize, and present data in ways that support smart
+          decision-making. These skills are at the heart of my expertise, helping businesses solve problems and make
+          informed, data-driven choices.
+        </p>
+      </div>
+
+      <!-- Skills as buttons (right side) -->
+      <div class="md:w-1/2">
+        <div class="flex flex-wrap gap-4 justify-start items-start">
+          <span class="bg-neutral-100 text-neutral-800 text-m px-5 py-2 rounded-full shadow-sm">Excel</span>
+          <span class="bg-neutral-100 text-neutral-800 text-m px-5 py-2 rounded-full shadow-sm">SQL</span>
+          <span class="bg-neutral-100 text-neutral-800 text-m px-5 py-2 rounded-full shadow-sm">Python</span>
+          <span class="bg-neutral-100 text-neutral-800 text-m px-5 py-2 rounded-full shadow-sm">HTML5</span>
+          <span class="bg-neutral-100 text-neutral-800 text-m px-5 py-2 rounded-full shadow-sm">CSS3</span>
+          <span class="bg-neutral-100 text-neutral-800 text-m px-5 py-2 rounded-full shadow-sm">JavaScript</span>
+          <span class="bg-neutral-100 text-neutral-800 text-m px-5 py-2 rounded-full shadow-sm">jQuery</span>
+          <span class="bg-neutral-100 text-neutral-800 text-m px-5 py-2 rounded-full shadow-sm">Responsive Web
+            Design</span>
+          <span class="bg-neutral-100 text-neutral-800 text-m px-5 py-2 rounded-full shadow-sm">PHP</span>
+          <span class="bg-neutral-100 text-neutral-800 text-m px-5 py-2 rounded-full shadow-sm">Adobe Photoshop</span>
+          <span class="bg-neutral-100 text-neutral-800 text-m px-5 py-2 rounded-full shadow-sm">Bootstrap
+            Framework</span>
+          <span class="bg-neutral-100 text-neutral-800 text-2m px-5 py-2 rounded-full shadow-sm">Git Version
+            Control</span>
+          <span class="bg-neutral-100 text-neutral-800 text-m px-5 py-2 rounded-full shadow-sm">WordPress</span>
+          <span class="bg-neutral-100 text-neutral-800 text-m px-5 py-2 rounded-full shadow-sm">Shopify</span>
+        </div>
+      </div>
+
+
+
+    </div>
+  </section>
+
+
+
+  <section class="text-neutral-900 font-sans antialiased flex items-center justify-center py-12 px-4">
+
+    <div class="bg-white max-w-2xl w-full p-8 rounded-2xl shadow-xl border border-neutral-200">
+      <div class="mb-6 text-center">
+        <h1 class="text-3xl font-medium">Let's Connect</h1>
+        <p class="text-neutral-500 mt-2">Feel free to reach out through the form or email me directly.</p>
+      </div>
+
+      <form class="space-y-4">
+        <div>
+          <label for="name" class="block text-sm font-medium text-neutral-700">Name</label>
+          <input type="text" id="name"
+            class="mt-1 block w-full px-4 py-2 border border-neutral-300 rounded-lg focus:ring-2 focus:ring-neutral-800 focus:outline-none"
+            required>
+        </div>
+
+        <div>
+          <label for="email" class="block text-sm font-medium text-neutral-700">Email</label>
+          <input type="email" id="email"
+            class="mt-1 block w-full px-4 py-2 border border-neutral-300 rounded-lg focus:ring-2 focus:ring-neutral-800 focus:outline-none"
+            required>
+        </div>
+
+        <div>
+          <label for="message" class="block text-sm font-medium text-neutral-700">Message</label>
+          <textarea id="message" rows="4"
+            class="mt-1 block w-full px-4 py-2 border border-neutral-300 rounded-lg focus:ring-2 focus:ring-neutral-800 focus:outline-none"
+            required></textarea>
+        </div>
+
+        <div class="text-center">
+          <button type="submit"
+            class="inline-block bg-neutral-900 text-white px-6 py-2 rounded-lg hover:bg-neutral-800 transition">Send
+            Message</button>
+        </div>
+      </form>
+
+      <div class="mt-6 text-center text-sm text-neutral-500">
+        Or email me at <a href="mailto:your@email.com" class="underline hover:text-neutral-800">your@email.com</a>
+      </div>
+    </div>
+
+  </section>
+  <!-- Footer -->
+  <footer class="bg-gray-100 py-6 mt-10">
+    <div class="max-w-7xl mx-auto px-6 text-center text-sm text-gray-500">
+      &copy; 2025 Adrian Avenido. All rights reserved.
+    </div>
+  </footer>
+
+
+
+</body>
+
+</html>

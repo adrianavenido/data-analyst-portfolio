@@ -146,7 +146,7 @@ DROP PROCEDURE populate_csat;
 
 ```
 
-> Full query is saved in [`sql_queries/nsat_data_extraction.sql`](./sql_queries/nsat_data_extraction.sql)
+> Full query is saved in https://raw.githubusercontent.com/adrianavenido/data-analyst-portfolio/refs/heads/main/portfolio_projects/nsat_dashboard_powerbi/nsat_data_extraction.sql
 
 ---
 

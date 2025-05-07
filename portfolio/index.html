@@ -9,11 +9,14 @@
   <script src="https://cdn.tailwindcss.com"></script>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet" />
 
-  <head>
-    <link rel="icon" type="image/x-icon" href="company_logos/profile_pic.png">
-    <!-- If you are using a PNG or other image type, update the type attribute -->
-    <!-- <link rel="icon" type="image/png" href="favicon.png"> -->
-  </head>
+
+  <link rel="icon" type="image/x-icon" href="company_logos/profile_pic.png">
+  <!-- If you are using a PNG or other image type, update the type attribute -->
+  <!-- <link rel="icon" type="image/png" href="favicon.png"> -->
+
+
+  <!-- In <head> -->
+  <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet">
 
   <style>
     body {
@@ -185,7 +188,10 @@
       <div class="space-y-6 lg:sticky lg:top-10 self-start">
         <h4 class="text-2xl font-semibold mb-4">Project: NSAT Dashboard for Delivery Center Performance</h4>
         <p class="text-gray-600">
-          This project replaced manual NSAT tracking with an interactive Power BI report, providing a centralized view of customer satisfaction performance across the delivery center. It enables real-time insights into NSAT scores by supervisor and manager, highlights top detracting agents, and calculates the number of surveys needed to reach target scores.
+          This project replaced manual NSAT tracking with an interactive Power BI report, providing a centralized view
+          of customer satisfaction performance across the delivery center. It enables real-time insights into NSAT
+          scores by supervisor and manager, highlights top detracting agents, and calculates the number of surveys
+          needed to reach target scores.
         </p>
         <div class="text-gray-600 space-y-4">
           <p><strong>Key Improvements:</strong></p>
@@ -197,23 +203,24 @@
           </ul>
           <p><strong>Technologies Used:</strong></p>
           <ul class="list-disc pl-6">
-            <li>SQL for querying and transforming mock survey and performance data (used in place of real data due to NDA restrictions).</li>
+            <li>SQL for querying and transforming mock survey and performance data (used in place of real data due to
+              NDA restrictions).</li>
             <li>Power BI for interactive data visualization</li>
             <li>DAX for dynamic survey gap calculations</li>
           </ul>
           <table class="w-full text-gray-600 text-sm mt-4">
             <tr>
               <td class="py-4 font-semibold text-gray-500 border-b border-gray-300">Role</td>
-              <td class="py-2 text-right border-b border-gray-300">Project 1 Specialist</td>
+              <td class="py-2 text-right border-b border-gray-300">Workforce Team Lead</td>
             </tr>
             <tr>
               <td class="py-4 font-semibold text-gray-500 border-b border-gray-300">Deliverables</td>
-              <td class="py-2 text-right border-b border-gray-300">Project 1</td>
+              <td class="py-2 text-right border-b border-gray-300">Reporting</td>
             </tr>
             <tr>
               <td class="py-4 font-semibold text-gray-500 border-b border-gray-300">Visit Site</td>
               <td class="py-2 text-right border-b border-gray-300">
-                <a href="https://www.wizetemplates.com" class="text-blue-600 hover:text-blue-800" target="_blank">See
+                <a href="" class="text-blue-600 hover:text-blue-800" target="_blank">See
                   sample code</a>
               </td>
             </tr>
@@ -221,18 +228,95 @@
         </div>
       </div>
 
-      <!-- Scrollable Image Stack -->
-      <div class="space-y-10">
-        <img src="C:\Users\adria\Desktop\data-analyst-portfolio\portfolio_projects\nsat_dashboard_powerbi\images\nsat_dashboard_preview_page_1.png" alt="Step 1"
-          class="w-full h-auto rounded-md shadow-md">
-        <img src="C:\Users\adria\Desktop\data-analyst-portfolio\portfolio_projects\nsat_dashboard_powerbi\images\nsat_dashboard_preview_page_2.png" alt="Step 2"
-          class="w-full h-auto rounded-md shadow-md">
+      <div class="space-y-10 p-4" data-aos="fade-up" data-aos-duration="1000">
+        <img
+          src="C:\Users\adria\Desktop\data-analyst-portfolio\portfolio_projects\nsat_dashboard_powerbi\images\nsat_dashboard_preview_page_1.png"
+          alt="Step 1" class="w-full h-auto rounded-md shadow-md p-4">
+        <img
+          src="C:\Users\adria\Desktop\data-analyst-portfolio\portfolio_projects\nsat_dashboard_powerbi\images\nsat_dashboard_preview_page_2.png"
+          alt="Step 2" class="w-full h-auto rounded-md shadow-md p-4">
       </div>
+
+
+    </div>
+
+
+    <!-- Project Section -->
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-10 mt-10">
+      <!-- Sticky Text Section -->
+      <div class="space-y-6 lg:sticky lg:top-10 self-start">
+        <h4 class="text-2xl font-semibold mb-4">Project: SAP Cash Application Automation</h4>
+        <p class="text-gray-600">
+          This project showcases a fully automated solution for cash application using Python and VBS scripting within
+          the SAP GUI. Originally developed in a corporate environment prior to the public release of ChatGPT, this
+          initiative replaced time-consuming manual reconciliation with a programmable approach that reads remittance
+          data from Excel and generates VBS scripts to perform SAP transactions end-to-end.
+        </p>
+        <div class="text-gray-600 space-y-4">
+          <p><strong>Key Improvements:</strong></p>
+          <ul class="list-disc pl-6">
+            <li>Automated posting of high-volume remittance files (e.g. 3,000+ line items)</li>
+            <li>Reduced manual data entry errors and SAP navigation time</li>
+            <li>Improved end-to-end reconciliation time by over 80%</li>
+            <li>Streamlined integration of remittance data into SAP using SAP GUI scripting</li>
+          </ul>
+          <p><strong>Technologies Used:</strong></p>
+          <ul class="list-disc pl-6">
+            <li>Python for data parsing and logic flow</li>
+            <li>Excel (OpenPyXL / pandas) for remittance cleanup and structuring</li>
+            <li>VBS for SAP GUI script automation</li>
+          </ul>
+          <table class="w-full text-gray-600 text-sm mt-4">
+            <tr>
+              <td class="py-4 font-semibold text-gray-500 border-b border-gray-300">Role</td>
+              <td class="py-2 text-right border-b border-gray-300">Cash Application Analyst</td>
+            </tr>
+            <tr>
+              <td class="py-4 font-semibold text-gray-500 border-b border-gray-300">Deliverables</td>
+              <td class="py-2 text-right border-b border-gray-300">CAsh Application, Automation Scripts, Documentation, Demo Files</td>
+            </tr>
+            <tr>
+              <td class="py-4 font-semibold text-gray-500 border-b border-gray-300">Visit Site</td>
+              <td class="py-2 text-right border-b border-gray-300">
+                <a href="https://github.com/yourusername/sap-cash-automation" class="text-blue-600 hover:text-blue-800"
+                  target="_blank">See sample code</a>
+              </td>
+            </tr>
+          </table>
+        </div>
+      </div>
+
+
+      <div class="space-y-10 p-4" data-aos="fade-up" data-aos-duration="1000">
+        <img
+          src="C:\Users\adria\Desktop\data-analyst-portfolio\portfolio_projects\sap_cash_automation_project\images\F-28.png"
+          alt="Step 1" class="w-full h-auto rounded-md shadow-md p-4">
+        <img
+          src="C:\Users\adria\Desktop\data-analyst-portfolio\portfolio_projects\sap_cash_automation_project\images\F-28 - 1.png"
+          alt="Step 2" class="w-full h-auto rounded-md shadow-md p-4">
+        <p class="text-sm text-gray-500 italic pt-2">
+          Disclaimer: These screenshots are mock visuals sourced from
+          <a href="https://www.stechies.com/f28-post-customer-incoming-payments-sap/" target="_blank"
+            class="text-blue-500 underline">
+            Stechies.com
+          </a> and are used solely for educational and portfolio demonstration purposes.
+          They do not contain proprietary or confidential information. SAP is a trademark of SAP SE.
+          This project was developed prior to the public release of ChatGPT on November 30, 2022, and was created
+          entirely through manual code review, iterative scripting, and independent research using resources like Stack
+          Overflow.
+        </p>
+
+        <img
+          src="C:\Users\adria\Desktop\data-analyst-portfolio\portfolio_projects\sap_cash_automation_project\images\vbs.png"
+          alt="Step 3" class="w-full h-auto rounded-md shadow-md p-4">
+
+
+      </div>
+
+
+
     </div>
   </section>
-
-
-
 
 
 
@@ -438,7 +522,11 @@
     </div>
   </footer>
 
-
+  <!-- Before </body> -->
+  <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+  <script>
+    AOS.init();
+  </script>
 
 </body>
 

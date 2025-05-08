@@ -46,22 +46,28 @@
 
 
   <!-- Header Section -->
-  <header class="max-w-screen-xl mx-auto px-6 py-8 flex flex-col md:flex-row justify-between items-center">
+<!-- Sticky Header -->
+<header class="sticky top-0 z-50 bg-white shadow-md">
+  <div class="max-w-screen-xl mx-auto px-6 py-4 flex flex-col md:flex-row justify-between items-center">
+    
     <!-- Image and Name Section -->
-    <div class="flex flex-col items-center space-y-4 mb-6 md:mb-0">
+    <div class="flex flex-col items-center space-y-2 mb-4 md:mb-0 md:flex-row md:space-y-0 md:space-x-4">
       <img src="company_logos/profile_pic.png" alt="Data Analyst"
-        class="rounded-full shadow-lg w-16 h-16 object-cover" />
+        class="rounded-full shadow-lg w-10 h-10 object-cover" />
       <span class="text-xl font-semibold">Data Analyst</span>
     </div>
 
     <!-- Navigation Section -->
-    <nav class="space-y-4 md:space-x-6 md:space-y-0 flex flex-col md:flex-row items-center text-gray-700 font-semibold">
+    <nav class="flex flex-col md:flex-row items-center space-y-2 md:space-y-0 md:space-x-6 text-gray-700 font-semibold">
       <a href="#work" class="hover:text-blue-600 transition transform hover:scale-110 py-2 px-4 rounded-md">Work</a>
       <a href="#about" class="hover:text-blue-600 transition transform hover:scale-110 py-2 px-4 rounded-md">About</a>
-      <a href="#experience"
-        class="hover:text-blue-600 transition transform hover:scale-110 py-2 px-4 rounded-md">Experience</a>
+      <a href="#experience" class="hover:text-blue-600 transition transform hover:scale-110 py-2 px-4 rounded-md">Experience</a>
       <a href="#links" class="hover:text-blue-600 transition transform hover:scale-110 py-2 px-4 rounded-md">Links</a>
     </nav>
+
+  </div>
+
+
 
     <script src="https://cdn.tailwindcss.com"></script>
 <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
@@ -363,7 +369,7 @@
               <td class="py-2 text-right border-b border-gray-300">Compliance Lead</td>
             </tr>
             <tr>
-              <td class="py-4 font-semibold text-gray-500 border-b border-gray-300">Compliance Lead</td>
+              <td class="py-4 font-semibold text-gray-500 border-b border-gray-300">Deliverables</td>
               <td class="py-2 text-right border-b border-gray-300">Automated Scorecard System, Email Integration,
                 Documentation</td>
             </tr>
@@ -457,6 +463,7 @@
   </section>
 
 
+  <!-- About Section -->
   <section class="max-w-7xl w-full mx-auto px-6 py-12 flex flex-col md:flex-row gap-12 items-start">
     <!-- Left side: Profile image and title -->
     <div class="flex flex-col items-start space-y-4 md:w-1/2 w-full sticky top">
@@ -546,76 +553,64 @@
     </div>
   </section>
 
-  <section class="py-16 px-4 bg-white text-gray-900" x-data="{ open: null }">
-    <div class="max-w-7xl w-full mx-auto">
-  
-      <!-- Header -->
-      <div class="flex items-center space-x-4 mb-8">
-        <div class="w-4 h-4 rounded-full bg-green-200"></div>
-        <h2 class="text-5xl text-gray-900">Professional Experience</h2>
-      </div>
-  
-      <!-- Timeline -->
-      <div class="relative space-y-8 flex flex-col items-center">
-        <template x-for="(item, index) in [
-          {
-            title: 'Infosys BPM LTD / Team Leader',
-            duration: 'November 2014 – 2025, Alabang Muntinlupa City',
-            details: [
-              'Drive workforce management, enhancing real-time adherence, forecasting, and scheduling.',
-              'Deliver actionable insights and collaborate cross-functionally to exceed business targets.',
-              'Lead client BCP implementation, annual reviews, and audit coordination.',
-              'Oversee info security, compliance, and offboarding verification processes.',
-              'Maintain PCI DSS compliance and generate MIS reports for performance tracking.',
-              'Supervised collection teams, optimized performance, and implemented KPI strategies.',
-              'Managed account reconciliations and coached new hires.'
-            ]
-          },
-          {
-            title: 'Genpact Services LLC / Sales and Process Associate',
-            duration: 'March 2013 – August 2014, Alabang, Muntinlupa City',
-            details: [
-              'Assisted customers with fund transfers, stop payments, and transaction inquiries.',
-              'Consistently met sales targets and key performance metrics.'
-            ]
-          },
-          {
-            title: 'IBM Daksh Phils. Inc. / Sales and Customer Service Representative',
-            duration: 'May 2010 – May 2012, Quezon City',
-            details: [
-              'Answered inbound calls and strived for one-call resolution.',
-              'Upsold new products and services to enhance customer experience.'
-            ]
-          }
-        ]" :key="index">
-          <div class="relative z-10 w-full max-w-5xl">
-            <div class="absolute left-1/2 transform -translate-x-1/2 h-full border-l-2 border-gray-200"></div>
-  
-            <div :class="index % 2 === 0 ? 'md:pr-8 md:w-1/2' : 'md:pl-8 md:ml-auto md:w-1/2'" class="w-full">
-              <div class="bg-white p-6 rounded-2xl shadow-lg border">
-                <div class="flex items-center justify-between cursor-pointer" @click="open === index ? open = null : open = index">
-                  <div>
-                    <h3 class="font-semibold text-lg" x-text="item.title"></h3>
-                    <p class="text-sm text-gray-500" x-text="item.duration"></p>
-                  </div>
-                  <button class="bg-gray-500 text-white rounded-full p-2 transition-transform transform" :class="open === index ? 'rotate-45' : ''">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor">
-                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"/>
-                    </svg>
-                  </button>
+
+    <!-- Career Timeline Section -->
+<!-- Career Timeline Section -->
+<section class="py-16 px-4 bg-white text-gray-900" x-data="{ open: null }">
+  <div class="max-w-7xl w-full mx-auto">
+
+    <!-- Header -->
+    <div class="flex items-center space-x-4 mb-8">
+      <div class="w-4 h-4 rounded-full bg-green-200"></div>
+      <h2 class="text-5xl text-gray-900">Professional Experience</h2>
+    </div>
+
+    <!-- Timeline -->
+    <div class="relative space-y-8 flex flex-col items-center">
+      <template x-for="(item, index) in [
+        {
+          title: 'Infosys BPM LTD / Team Leader',
+          duration: 'November 2014 – 2025, Alabang Muntinlupa City',
+          summary: 'Led workforce operations with a focus on real-time adherence, scheduling, and performance reporting. Collaborated cross-functionally to provide actionable insights, ensure audit and compliance readiness, and support business continuity initiatives.'
+        },
+        {
+          title: 'Genpact Services LLC / Sales and Process Associate',
+          duration: 'March 2013 – August 2014, Alabang, Muntinlupa City',
+          summary: 'Managed customer transactions and inquiries while consistently meeting performance and sales targets. Developed a strong understanding of customer behavior and service metrics.'
+        },
+        {
+          title: 'IBM Daksh Phils. Inc. / Sales and Customer Service Representative',
+          duration: 'May 2010 – May 2012, Quezon City',
+          summary: 'Delivered frontline support and upsold services by analyzing customer needs. Gained early experience in service data trends and performance metrics.'
+        }
+      ]" :key="index">
+        <div class="relative z-10 w-full max-w-5xl">
+          <div class="absolute left-1/2 transform -translate-x-1/2 h-full border-l-2 border-gray-200"></div>
+
+          <div :class="index % 2 === 0 ? 'md:pr-8 md:w-1/2' : 'md:pl-8 md:ml-auto md:w-1/2'" class="w-full">
+            <div class="bg-white p-6 rounded-2xl shadow-lg border">
+              <div class="flex items-center justify-between cursor-pointer" @click="open === index ? open = null : open = index">
+                <div>
+                  <h3 class="font-semibold text-lg" x-text="item.title"></h3>
+                  <p class="text-sm text-gray-500" x-text="item.duration"></p>
                 </div>
-                <div x-show="open === index" x-collapse class="mt-4 text-sm text-gray-700 space-y-1">
-                  <template x-for="point in item.details" :key="point">
-                    <li class="list-disc list-inside" x-text="point"></li>
-                  </template>
-                </div>
+                <button class="bg-gray-500 text-white rounded-full p-2 transition-transform transform" :class="open === index ? 'rotate-45' : ''">
+                  <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"/>
+                  </svg>
+                </button>
+              </div>
+              <div x-show="open === index" x-collapse class="mt-4 text-sm text-gray-700">
+                <p x-text="item.summary"></p>
               </div>
             </div>
           </div>
-        </template>
-      </div>
+        </div>
+      </template>
     </div>
-  </section>
+  </div>
+</section>
+
   
 
 

@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test Practice</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+
+
+    <!-- In <head> -->
+    <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            darkMode: 'class' // enable class-based dark mode
+        };
+    </script>
+</head>
+
+<body class="mx-[200px] bg-white text-black dark:bg-gray-800 dark:text-white flex flex-col">
+
+        <nav class="navbar ml-auto sticky top-0">
+            <div class=" bg-gray-100 p-4">
+                <a href="#home" class="p-4">Home</a>
+                <a href="#about" class="p-4">About</a>
+                <a href="#services" class="p-4">Services</a>
+                <a href="#contact" class="p-4">Contact</a>
+
+                <button onclick="document.documentElement.classList.toggle('dark')"
+                    class="px-4 py-2 bg-blue-500 text-white rounded">
+                    Toggle Dark Mode
+                </button>
+            </div>
+        </nav>
+    
+
+
+    <section class="flex min-h-screen">
+        <div class="w-full bg-orange-100 p-4">
+
+        <p class="max-w-xl text-5xl text-gray-700 mt-10">
+          Transforming complex data into clear insights for smarter business decisions.
+        </p>
+        </div>
+
+    </section>
+
+
+
+    <section class="flex flex-row min-h-screen ">
+        <aside class="w-1/4 bg-gray-300 p-4">
+            <h3 class="text-lg">Sidebar</h3>
+            <ul>
+                <li><a href="#link1">Link 1</a></li>
+                <li><a href="#link2">Link 2</a></li>
+                <li><a href="#link3">Link 3</a></li>
+            </ul>
+        </aside>
+
+        <article class="flex-grow bg-white p-4">
+            <h2 class="text-xl">Main Content Area</h2>
+            <p>This is where the main content goes.</p>
+        </article>
+    </section>
+
+    <section class="flex flex-row min-h-screen">
+
+
+        <div class="flex-grow bg-gray-500 p-4">
+            <h2 class="text-xl">Another Content Area</h2>
+            <p>This is another content area.</p>
+        </div>
+        
+        <div class="flex-grow bg-green-200 p-4">
+            <h2 class="text-xl">Another Content Area</h2>
+            <p>This is another content area.</p>
+        </div>
+    </section>
+
+    <section class="flex flex-row min-h-screen">
+        <div class="w-1/4 bg-gray-400 p-4">
+            <h3 class="text-lg">Additional Sidebar</h3>
+            <ul>
+                <li><a href="#link4">Link 4</a></li>
+                <li><a href="#link5">Link 5</a></li>
+                <li><a href="#link6">Link 6</a></li>
+            </ul>
+        </div>
+
+        <div class="flex-grow bg-gray-500 p-4">
+            <h2 class="text-xl">Another Content Area</h2>
+            <p>This is another content area.</p>
+        </div>
+    </section>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <section class="flex flex-row min-h-screen">
+
+
+        <div class="flex-grow bg-gray-500 p-4">
+            <h2 class="text-xl">Another Content Area</h2>
+            <p>This is another content area.</p>
+        </div>
+        
+        <div class="flex-grow bg-green-200 p-4">
+            <h2 class="text-xl">Another Content Area</h2>
+            <p>This is another content area.</p>
+        </div>
+    </section>
+
+    <section class="flex min-h-screen">
+        <div class="w-full bg-yellow-400 p-4">
+            <h3 class="text-lg">Additional Sidebar</h3>
+            <ul>
+                <li><a href="#link4">Link 4</a></li>
+                <li><a href="#link5">Link 5</a></li>
+                <li><a href="#link6">Link 6</a></li>
+            </ul>
+        </div>
+
+    </section>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <section class="flex flex-row">
+        <footer class="bg-gray-800 text-white p-4 w-full">
+            <p>&copy; 2023 My Website</p>
+        </footer>
+    </section>
+
+
+</body>
+
+</html>

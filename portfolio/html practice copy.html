@@ -4,8 +4,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>HTML Practice</title>
-  <link rel="icon" href="company_logos/data_icons.ico" type="image/x-icon">
+  <title>HTML Practice Section</title>
+  <link rel="icon" href="/company_logos/data_icons.ico" type="image/x-icon">
 
 
   <!-- Google Fonts: Inter -->
@@ -29,7 +29,6 @@
   </script>
 
   <!-- Load a modern Google Font -->
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
 
   <!-- Tailwind CSS Animation (extend in your Tailwind config if needed) -->
   <style>
@@ -54,12 +53,13 @@
     }
   </style>
 
+    <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
 </head>
 
 <body class="mx-[200px] bg-white text-black dark:bg-gray-800 dark:text-white flex flex-col min-h-screen">
   <!-- Navigation Section -->
   <section
-    class="flex flex-row sticky top-0 z-10 items-center justify-between w-full bg-white/30 dark:bg-gray-800/30 backdrop-blur-md">
+    class="flex flex-row sticky top-0 z-10 items-center justify-between w-full bg-white/30 dark:bg-gray-800/30 backdrop-blur-md ">
 
     <!-- Logo / Header -->
     <header class="flex-grow p-4 flex items-center">
@@ -99,14 +99,14 @@
 
     <div class="flex flex-col w-full pt-[20vh] md:w-1/2 flex-grow p-5 rounded-lg">
       <div class="flex flex-col items-left text-sm text-gray-700">
-        <h2 class="text-2xl font-bold mb-4 text-gray-900">Hey, I'm</h2>
-        <h2 class="text-5xl font-bold mb-4 text-gray-900">Adrian Avenido</h2>
+        <h2 class="text-2xl font-bold mb-4 text-gray-900 bg-white text-black dark:bg-gray-800 dark:text-white">Hey, I'm</h2>
+        <h2 class="text-5xl font-bold mb-4 text-gray-900 bg-white text-black dark:bg-gray-800 dark:text-white">Adrian Avenido</h2>
 
         <div class="flex items-center text-sm text-gray-700 mb-2">
           <span class="w-3 h-3 bg-green-500 rounded-full mr-2"></span>
-          <p>Available for freelance work</p>
+          <p class="bg-white text-black dark:bg-gray-800 dark:text-white">Available for freelance work</p>
         </div>
-        <p class="text-xl text-gray-800 mt-10 font-[Inter] tracking-wide opacity-0 animate-fade-in-up">
+        <p class="text-xl text-gray-800 mt-10 font-[Inter] tracking-wide opacity-0 animate-fade-in-up bg-white text-black dark:bg-gray-800 dark:text-white">
           I focus on turning raw data into actionable insights through clear analysis and intuitive
           visualizations—driving smarter decisions with accuracy, clarity, and impact.
         </p>
@@ -161,16 +161,16 @@
     <div class="grid grid-cols-1 lg:grid-cols-2 gap-10 mt-10">
       <!-- Sticky Text Section -->
       <div class="space-y-6 lg:sticky lg:top-10 self-start">
-        <h4 class="text-2xl font-semibold mb-4 pt-20">Project: NSAT Dashboard for Delivery Center Performance</h4>
-        <p class="text-gray-600">
+        <h4 class="text-2xl font-semibold mb-4 pt-20 bg-white text-black dark:bg-gray-800 dark:text-white">Project: NSAT Dashboard for Delivery Center Performance</h4>
+        <p class="text-gray-600 bg-white text-black dark:bg-gray-800 dark:text-white">
           This project replaced manual NSAT tracking with an interactive Power BI report, providing a centralized view
           of customer satisfaction performance across the delivery center. It enables real-time insights into NSAT
           scores by supervisor and manager, highlights top detracting agents, and calculates the number of surveys
           needed to reach target scores.
         </p>
-        <div class="text-gray-600 space-y-4">
+        <div class="text-gray-600 space-y-4 bg-white text-black dark:bg-gray-800 dark:text-white">
           <p><strong>Key Improvements:</strong></p>
-          <ul class="list-disc pl-6">
+          <ul class="list-disc pl-6 bg-white text-black dark:bg-gray-800 dark:text-white">
             <li>Eliminated manual data compilation, saving 70% of reporting time</li>
             <li>Improved visibility of team-level performance and accountability</li>
             <li>Enabled proactive action on low-performing agents and survey gaps</li>
@@ -183,7 +183,7 @@
             <li>Power BI for interactive data visualization</li>
             <li>DAX for dynamic survey gap calculations</li>
           </ul>
-          <table class="w-full text-gray-600 text-sm mt-4">
+          <table class="w-full text-gray-600 text-sm mt-4 bg-white text-black dark:bg-gray-800 dark:text-white ">
             <tbody>
               <tr>
                 <td class="py-4 font-semibold text-gray-500 border-b border-gray-300">Role</td>
@@ -208,10 +208,10 @@
       <div class="space-y-10 p-4 pt-20 animate-fade2-in-up">
         <img
           src="C:\Users\adria\Desktop\data-analyst-portfolio\portfolio_projects\nsat_dashboard_powerbi\images\nsat_dashboard_preview_page_1.png"
-          alt="Step 1" class="w-full h-auto rounded-md shadow-md p-4">
+          src="portfolio_projects/nsat_dashboard_powerbi/images/nsat_dashboard_preview_page_1.png"
         <img
-          src="C:\Users\adria\Desktop\data-analyst-portfolio\portfolio_projects\nsat_dashboard_powerbi\images\nsat_dashboard_preview_page_2.png"
-          alt="Step 2" class="w-full h-auto rounded-md shadow-md p-4">
+          src="C:\Users\adria\Desktop\data-analyst-portfolio\portfolio_projects\nsat_dashboard_powerbi\images\nsat_dashboard_preview_page_3.png"
+          alt="Step 3" class="w-full h-auto rounded-md shadow-md p-4">
         <img
           src="C:\Users\adria\Desktop\data-analyst-portfolio\portfolio_projects\nsat_dashboard_powerbi\images\nsat_dashboard_preview_page_2.png"
           alt="Step 2" class="w-full h-auto rounded-md shadow-md p-4">
@@ -226,7 +226,7 @@
       <!-- Sticky Text Section -->
       <div class="space-y-6 lg:sticky lg:top-10 self-start">
         <h4 class="text-2xl font-semibold mb-4 pt-20">Project: SAP Cash Application Automation</h4>
-        <p class="text-gray-600">
+        <p class="text-gray-600 bg-white text-black dark:bg-gray-800 dark:text-white">
           This project showcases a fully automated solution for cash application using Python and VBS scripting within
           the SAP GUI. Developed to improve the efficiency of remittance processing, the initiative replaced
           time-consuming manual tasks such as reviewing remittance files and typing entries into SAP. This project reads
@@ -234,7 +234,7 @@
           transactions automatically—significantly reducing manual workload and errors.
 
         </p>
-        <div class="text-gray-600 space-y-4">
+        <div class="text-gray-600 space-y-4 bg-white text-black dark:bg-gray-800 dark:text-white">
           <p><strong>Key Improvements:</strong></p>
           <ul class="list-disc pl-6">
             <li>Automated posting of high-volume remittance files (e.g. 3,000+ line items)</li>
@@ -248,8 +248,8 @@
             <li>Excel (OpenPyXL / pandas) for remittance cleanup and structuring</li>
             <li>VBS for SAP GUI script automation</li>
           </ul>
-          <table class="w-full text-gray-600 text-sm mt-4">
-            <tr>
+          <table class="w-full text-gray-600 text-sm mt-4 bg-white text-black dark:bg-gray-800 dark:text-white">
+            <tr >
               <td class="py-4 font-semibold text-gray-500 border-b border-gray-300">Role</td>
               <td class="py-2 text-right border-b border-gray-300">Cash Application Analyst</td>
             </tr>
@@ -261,8 +261,8 @@
             <tr>
               <td class="py-4 font-semibold text-gray-500 border-b border-gray-300">Visit Site</td>
               <td class="py-2 text-right border-b border-gray-300">
-                <a href="https://github.com/yourusername/sap-cash-automation" class="text-blue-600 hover:text-blue-800"
-                  target="_blank">See sample code</a>
+                <a href="https://github.com/adrianavenido/sap-cash-automation" class="text-blue-600 hover:text-blue-800"
+                target="_blank">See sample code</a>
               </td>
             </tr>
           </table>
@@ -305,9 +305,9 @@
     <!-- Project: Automated Monthly Coaching Scorecard System Section -->
     <div class="grid grid-cols-1 lg:grid-cols-2 gap-10 mt-10">
       <!-- Sticky Text Section -->
-      <div class="space-y-6 lg:sticky lg:top-10 self-start">
+      <div class="space-y-6 lg:sticky lg:top-10 self-start bg-white text-black dark:bg-gray-800 dark:text-white">
         <h4 class="text-2xl font-semibold mb-4 pt-20">Project: Employee Scorecard Form Automation</h4>
-        <p class="text-gray-600">
+        <p class="text-gray-600 bg-white text-black dark:bg-gray-800 dark:text-white">
           This project automated the end-to-end process of generating monthly coaching scorecards for over 180 full-time
           employees using Google Workspace and Apps Script.
           Previously, supervisors manually created and distributed individual coaching forms, copy-pasting performance
@@ -317,7 +317,7 @@
           and ensures governance compliance by storing completed forms in a structured Google Drive folder system.
         </p>
         </p>
-        <div class="text-gray-600 space-y-4">
+        <div class="text-gray-600 space-y-4 bg-white text-black dark:bg-gray-800 dark:text-white">
           <p><strong>Key Improvements:</strong></p>
           <ul class="list-disc pl-6">
             <li>Reduced manual effort by 80% in preparing and sending scorecards</li>
@@ -332,7 +332,7 @@
             <li>Google Docs for dynamic template-based coaching forms</li>
             <li>Apps Script to automate form generation, email dispatch, and Drive folder organization</li>
           </ul>
-          <table class="w-full text-gray-600 text-sm mt-4">
+          <table class="w-full text-gray-600 text-sm mt-4 bg-white text-black dark:bg-gray-800 dark:text-white">
             <tr>
               <td class="py-4 font-semibold text-gray-500 border-b border-gray-300">Role</td>
               <td class="py-2 text-right border-b border-gray-300">Compliance Lead</td>
@@ -345,8 +345,8 @@
             <tr>
               <td class="py-4 font-semibold text-gray-500 border-b border-gray-300">Visit Site</td>
               <td class="py-2 text-right border-b border-gray-300">
-                <a href="" class="text-blue-600 hover:text-blue-800" target="_blank">See
-                  sample code</a>
+                <a href="https://example.com/sample-code" class="text-blue-600 hover:text-blue-800" target="_blank">See
+                sample code</a>
               </td>
             </tr>
           </table>
@@ -383,7 +383,7 @@
         <div class="w-4 h-4 rounded-full bg-green-200 mt-4"></div>
 
       </div>
-        <h2 class="text-5xl text-gray-900 pl-4">About</h2>
+        <h2 class="text-5xl text-gray-900 pl-4 bg-white text-black dark:bg-gray-800 dark:text-white">About</h2>
 
     </div>
 
@@ -396,12 +396,12 @@
     <div class="flex flex-row">
       <div class="pt-[22vh]">
 
-        <img src="company_logos/profile_pic.png" alt="Data Analyst"
+        <img src="/company_logos/profile_pic.png" alt="Data Analyst"
           class="rounded-full shadow-lg w-16 h-16 object-cover " />
       </div>
       <div class=" w-1/2 pt-[20vh] p-4">
-        <div class="flex flex-col text-sm text-gray-700 mb-2">
-          <span class="text-2xl text-gray-600 p-5">— a data professional from the Philippines exploring data
+        <div class="flex flex-col text-sm text-gray-700 mb-2 ">
+          <span class="text-2xl text-gray-600 p-5 bg-white text-black dark:bg-gray-800 dark:text-white">— a data professional from the Philippines exploring data
             to find patterns, trends, and smart answers.</span>
           <div class=" mt-12 flex items-center">
 
@@ -426,7 +426,7 @@
 
       <!-- Right side: About Me text -->
       <div id="about" class="md:w-1/2 pt-20  p-20">
-        <p class="text-gray-500 text-left">
+        <p class="text-gray-500 text-left bg-white text-black dark:bg-gray-800 dark:text-white">
           Hey there! I’m Adrian — a curious mind with a passion for data and over 10 years of experience in Management
           Information Systems (MIS), operations analysis, and reporting.<br><br>
 
@@ -455,10 +455,10 @@
 
 
   <!-- Skills Section -->
-  <section class="  min-h-screen">
+  <section>
         <div class="flex flex-row items-center space-x-4">
         <div class="w-4 h-4 rounded-full bg-green-200"></div>
-        <h2 class="text-5xl text-gray-900">Skills</h2>
+        <h2 class="text-5xl text-gray-900 bg-white text-black dark:bg-gray-800 dark:text-white">Skills</h2>
       </div>
 
     <div class="flex flex-col space-x-4 mb-4">
@@ -467,7 +467,7 @@
 
       <!-- Description (left side) -->
       <div class=" p-8">
-        <p class="text-gray-600 max-w-2xl pr-20 pt-20 ">
+        <p class="text-gray-600 max-w-2xl pr-20 pt-20 bg-white text-black dark:bg-gray-800 dark:text-white ">
         I work with a variety of tools and technologies to turn raw data into valuable insights. With experience
         in
         Excel, SQL, Python, and Tableau, I’m able to analyze, visualize, and present data in ways that support
@@ -511,13 +511,66 @@
 
 
 
-  <section class="flex flex-row">
-    <footer class="bg-gray-800 text-white p-4 w-full">
-      <p>&copy; 2023 My Website</p>
-    </footer>
+
+
+`<!-- Career Timeline Section -->
+  <section class="min-h-screen text-gray-900 mx-[200x]" x-data="{ open: null }">
+    <div>
+
+      <!-- Header -->
+      <div class="flex items-center space-x-4 mb-8">
+        <div class="w-4 h-4 rounded-full bg-green-200"></div>
+        <h2 class="text-5xl text-gray-900">Professional Experience</h2>
+      </div>
+
+      <!-- Timeline -->
+      <div class="relative space-y-8 flex flex-col items-center pt-20 pb-20">
+        <template x-for="(item, index) in [
+        {
+          title: 'Infosys BPM LTD / Team Leader',
+          duration: 'November 2014 – 2025, Alabang Muntinlupa City',
+          summary: 'Seasoned Management Information System (MIS) Analyst/Team Lead with over 10 years of experience in data reporting, operational analysis, and performance monitoring. Demonstrated expertise in delivering actionable insights to support decision-making, optimize team performance, and drive process improvements. Recently expanded responsibilities to include workforce management, focusing on real-time adherence and audit readiness. Proven ability to collaborate across departments to ensure compliance and support business continuity initiatives.'
+        },
+        {
+          title: 'Genpact Services LLC / Sales and Process Associate',
+          duration: 'March 2013 – August 2014, Alabang, Muntinlupa City',
+          summary: 'Managed customer transactions and inquiries while consistently meeting performance and sales targets. Developed a strong understanding of customer behavior and service metrics.'
+        },
+        {
+          title: 'IBM Daksh Phils. Inc. / Sales and Customer Service Representative',
+          duration: 'May 2010 – May 2012, Quezon City',
+          summary: 'Delivered frontline support and upsold services by analyzing customer needs. Gained early experience in service data trends and performance metrics.'
+        }
+      ]" :key="index">
+          <div class="relative z-10 w-full max-w-5xl">
+            <div class="absolute left-1/2 transform -translate-x-1/2 h-full border-l-2 border-gray-200"></div>
+
+            <div :class="index % 2 === 0 ? 'md:pr-8 md:w-1/2' : 'md:pl-8 md:ml-auto md:w-1/2'" class="w-full">
+              <div class="bg-white p-6 rounded-2xl shadow-lg border">
+                <div class="flex items-center justify-between cursor-pointer"
+                  @click="open === index ? open = null : open = index">
+                  <div>
+                    <h3 class="font-semibold text-lg" x-text="item.title"></h3>
+                    <p class="text-sm text-gray-500" x-text="item.duration"></p>
+                  </div>
+                  <button class="bg-gray-500 text-white rounded-full p-2 transition-transform transform"
+                    :class="open === index ? 'rotate-45' : ''">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" viewBox="0 0 24 24" fill="none"
+                      stroke="currentColor">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4" />
+                    </svg>
+                  </button>
+                </div>
+                <div x-show="open === index" x-collapse class="mt-4 text-sm text-gray-700">
+                  <p x-text="item.summary"></p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </template>
+      </div>
+    </div>
   </section>
-
-
 
 
   <!-- Dark Mode Toggle Script -->
@@ -527,13 +580,44 @@
       const sun = document.getElementById('icon-sun');
       const moon = document.getElementById('icon-moon');
 
-      html.classList.toggle('dark');
+      const isDark = html.classList.toggle('dark');
+      localStorage.setItem('darkMode', isDark);
 
-      const isDark = html.classList.contains('dark');
       sun.classList.toggle('hidden', isDark);
       moon.classList.toggle('hidden', !isDark);
     }
+
+    // Apply dark mode state on page load
+    document.addEventListener('DOMContentLoaded', () => {
+      const html = document.documentElement;
+      const sun = document.getElementById('icon-sun');
+      const moon = document.getElementById('icon-moon');
+
+      const isDark = localStorage.getItem('darkMode') === 'true';
+      html.classList.toggle('dark', isDark);
+
+      sun.classList.toggle('hidden', isDark);
+      moon.classList.toggle('hidden', !isDark);
+    });
   </script>
+
+
+
+
+  <!-- Before </body> -->
+  <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+  <script>
+    AOS.init();
+  </script>
+
+  <!-- Footer -->
+  <footer class="py-6 mt-10">
+    <div class="text-center text-sm text-gray-500">
+      &copy; 2025 Adrian Avenido. All rights reserved.
+    </div>
+  </footer>
+
+
 </body>
 
 </html>

@@ -1,10 +1,22 @@
-# Employee Masterlist SQL Portfolio
+# Employee Masterlist SQL Portfolio Project
 
-This project contains SQL scripts and analysis for the employee masterlist.
+## Description
+A beginner SQL portfolio project using MySQL, VS Code, Git, and GitHub to explore employee data and answer common business questions.
 
-## Folder Structure
+## Project Structure
+- `data/` – Sample datasets
+- `scripts/` – SQL scripts
+- `outputs/` – Query results and screenshots
+- `docs/` – Final PowerPoint report
 
-- data/       : Raw data files (if any)
-- scripts/    : SQL scripts to create and query the database
-- outputs/    : Query results and exports
-- docs/       : Documentation and final reports (e.g., PowerPoint)
+## Tools Used
+- MySQL
+- Visual Studio Code
+- Git & GitHub
+
+## Business Questions Answered
+1. Total number of employees
+2. Average salary by department
+3. Employees hired after 2020
+4. Highest paid employee
+5. Headcount per department

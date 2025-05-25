@@ -1,4 +1,4 @@
--- Employee Masterlist SQL Queries
+/*-- Employee Masterlist SQL Queries
 
 -- Create the database if it doesn't exist
 CREATE DATABASE IF NOT EXISTS employee_portfolio;
@@ -56,3 +56,4 @@ LIMIT 1;
 SELECT department, COUNT(*) AS employee_count
 FROM employee_masterlist
 GROUP BY department;
+*/

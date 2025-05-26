@@ -1,5 +1,5 @@
 -- ===============================
--- HR & Operations Analysis SQL Documentation
+-- Employee Masterlist Analysis SQL Documentation
 -- ===============================
 
 -- ===============================

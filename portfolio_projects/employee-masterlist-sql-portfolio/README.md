@@ -1,22 +1,37 @@
-Employee Masterlist SQL Portfolio Project  
+# Employee Masterlist SQL Portfolio Project
 
-Description  
-A beginner SQL portfolio project using MySQL, VS Code, Git, and GitHub to explore employee data, answer key business questions, and analyze workforce trends including retention, leadership effectiveness, and workforce planning.  
+ 🔍 Description
+This SQL portfolio project leverages **MySQL, VS Code, Git, and GitHub** to explore employee data, analyze workforce trends, and answer key business questions. The focus includes **retention, leadership effectiveness, workforce planning,** and **predictive analytics**.
 
-Project Structure  
-- `data/` – Sample datasets  
-- `scripts/` – SQL scripts for queries and analysis  
-- `outputs/` – Query results, visualizations, and screenshots  
-- `docs/` – Final PowerPoint report with insights and recommendations  
+---
 
-Tools Used  
-- MySQL  
-- Visual Studio Code  
-- Git & GitHub  
-- Power BI (for visual analytics)  
+📂 Project Structure
 
-Business Questions Answered  
+Employee-Masterlist-SQL-Portfolio/ 
+├── data/                       # Sample datasets (CSV, Excel) 
+├── scripts/                    # SQL queries & analysis 
+│   ├── schema.sql              # Database schema creation 
+│   ├── queries.sql             # SQL queries for business questions 
+│   ├── analytics.sql           # Advanced analytical queries 
+│   ├── data_cleaning.sql       # Data preprocessing & transformations 
+├── outputs/                    # Query results, visualizations, screenshots 
+├── docs/                       # Final report, Power BI insights, README files 
+│   ├── README.md               # Project overview & methodology 
+│   ├── database_design.md      # Schema & table descriptions 
+│   ├── query_reference.md      # SQL query documentation 
+│   ├── analytics_methods.md    # Statistical analysis & insights
 
+---
+
+🛠 Tools Used
+- **MySQL** – Database management  
+- **Visual Studio Code** – SQL scripting and project documentation  
+- **Git & GitHub** – Version control for SQL queries  
+- **Power BI** – Data visualization  
+
+---
+
+📊 Business Questions Answered
 Employee Demographics & Retention  
 1. What is the gender distribution among employees?  
 2. What is the average age of employees?  
@@ -26,7 +41,7 @@ Employee Demographics & Retention
 
 Team & Management Performance  
 6. Which team leader has the highest retention rate among employees?  
-7. How does employee tenure vary across different teams?  
+7. How does employee tenure vary across different teams?    
 8. Which cluster manager oversees the most employees?  
 9. Which line of business experiences the highest employee turnover?  
 10. Which location has the most employees and the highest churn rate?  
@@ -67,7 +82,52 @@ Predictive Analytics & AI-Driven Insights
 31. Can we create a model to predict employee turnover risk based on historical data?  
 32. How do hiring and termination rates correlate with external economic trends?  
 33. What AI-driven recommendations can optimize employee satisfaction and retention?  
+---
+
+📑 Database Schema Overview  
+This **normalized MySQL schema** ensures structured workforce analysis and efficient data retrieval.
+
+#🧱 Core Tables
+| Table Name            | Description |
+|----------------------|------------|
+| `employees`          | Stores employee details, tenure, and attrition |
+| `team_leaders`       | Lists team leaders managing different business units |
+| `cluster_managers`   | Details of senior managers handling teams |
+| `lines_of_business`  | Defines various operational divisions |
+| `coaching_logs`      | Tracks leadership coaching and training |
+| `attendance_tracking`| Monitors employee attendance patterns |
+
+#🔗 Table Relationships
+
+[employees] → [team_leaders] → [cluster_managers] [employees] → [lines_of_business] → [capacity_target] [employees] → [coaching_logs] → [attendance_tracking]
+
+#📊 Key Attributes
+
+`employees` (Main Table)
+- `employee_id` (Primary Key)
+- `first_name`, `last_name`
+- `gender`, `birth_date`
+- `hire_date`, `termination_date`
+- `team_leader_id` (Foreign Key)
+- `lob_id` (Foreign Key)
+
+`coaching_logs`
+- `coaching_id` (Primary Key)
+- `employee_id` (Foreign Key)
+- `coach_id` (Foreign Key)
+- `coaching_date`
+- `impact_score` (1-5 rating)
+
+`attendance_tracking`
+- `attendance_id` (Primary Key)
+- `employee_id` (Foreign Key)
+- `total_working_days`, `present_days`
+- `absent_days` (Auto-calculated)
+- `leave_type` (Sick Leave, Vacation Leave, etc.)
 
 ---
 
-This update integrates **deeper analytical questions** across retention, leadership, workforce planning, and predictive insights. Would you like to refine any section further, perhaps adding SQL query examples?
+📌 Notes
+✔ Full schema implementation is available in [`scripts/schema.sql`](../scripts/schema.sql).  
+✔ SQL queries for business insights are documented in [`scripts/queries.sql`](../scripts/queries.sql).  
+✔ Data preprocessing methods are outlined in [`docs/database_design.md`](../docs/database_design.md).  

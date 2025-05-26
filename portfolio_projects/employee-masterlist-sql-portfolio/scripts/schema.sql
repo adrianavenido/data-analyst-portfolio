@@ -166,6 +166,23 @@ INSERT INTO attendance_tracking (employee_id, total_working_days, present_days, 
 (4, 22, 21, 'Unpaid Leave'),
 (5, 22, 19, 'Sick Leave');
 
+
+CREATE TABLE early_warning_indicators (
+    resignation_id INT AUTO_INCREMENT PRIMARY KEY,
+    employee_id INT NOT NULL,
+    reason TEXT NOT NULL, -- Employee's stated reason for potential resignation
+    resignation_date DATE NULL, -- Expected or confirmed resignation date
+    status ENUM('Consideration', 'Formal Notice', 'Withdrawn') NOT NULL DEFAULT 'Consideration', -- Current resignation intent status
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP, -- Timestamp when intent was logged
+    updated_at TIMESTAMP NULL, -- Last update to resignation intent
+    FOREIGN KEY (employee_id) REFERENCES employees(employee_id)
+);
+
+INSERT INTO early_warning_indicators (employee_id, reason, resignation_date, status, updated_at) VALUES
+(3, 'Seeking better growth opportunities.', '2025-07-15', 'Consideration', NULL),
+(7, 'Personal reasons affecting work-life balance.', NULL, 'Withdrawn', '2025-06-20 12:00:00'),
+(10, 'Received a higher-paying job offer.', '2025-08-01', 'Formal Notice', '2025-07-10 10:30:00');
+
 -- ===============================
 -- End of Documentation
 -- ===============================

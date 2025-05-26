@@ -91,30 +91,45 @@ ORDER BY total_absences DESC;
 
 -- Employees Considering Resignation
 SELECT COUNT(*) AS employees_considering_resignation
-FROM intent_to_resign
+FROM early_warning_indicators
 WHERE status = 'Consideration';
 
 -- Formally Resigned Employees
 SELECT employee_id, reason, resignation_date
-FROM intent_to_resign
+FROM early_warning_indicators
 WHERE status = 'Formal Notice'
 ORDER BY resignation_date ASC;
 
 -- Withdrawn Resignation Intent
 SELECT employee_id, reason, updated_at AS withdrawal_date
-FROM intent_to_resign
+FROM early_warning_indicators
 WHERE status = 'Withdrawn'
 ORDER BY withdrawal_date DESC;
 
 -- Resignation Reasons Analysis
 SELECT reason, COUNT(*) AS frequency
-FROM intent_to_resign
+FROM early_warning_indicators
 GROUP BY reason
 ORDER BY frequency DESC;
 
 -- Resignations Over Time
 SELECT YEAR(resignation_date) AS year, MONTH(resignation_date) AS month, COUNT(*) AS total_resignations
-FROM intent_to_resign
+FROM early_warning_indicators
 WHERE status = 'Formal Notice'
 GROUP BY year, month
 ORDER BY year DESC, month DESC;
+
+-- Employees with Multiple Resignation Attempts
+SELECT employee_id, COUNT(*) AS resignation_attempts
+FROM early_warning_indicators
+WHERE status IN ('Consideration', 'Formal Notice', 'Withdrawn')
+GROUP BY employee_id
+HAVING resignation_attempts > 1;
+
+-- Employees with Early Warning Indicators
+SELECT e.employee_id, CONCAT(e.first_name, ' ', e.last_name) AS full_name, e.team_leader_id, e.lob_id, 
+       ew.resignation_id, ew.reason, ew.resignation_date, ew.status, ew.created_at, ew.updated_at
+FROM employees e
+JOIN early_warning_indicators ew ON e.employee_id = ew.employee_id
+WHERE ew.status IN ('Consideration', 'Formal Notice','Withdrawn')
+ORDER BY e.employee_id, ew.resignation_date;

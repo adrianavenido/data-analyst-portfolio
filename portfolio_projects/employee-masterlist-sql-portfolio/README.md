@@ -17,27 +17,27 @@ Tools Used
 
 Business Questions Answered  
 
-#Employee Demographics & Retention  
+Employee Demographics & Retention  
 1. What is the gender distribution among employees?  
 2. What is the average age of employees?  
 3. What is the retention rate per line of business?  
 4. What is the most common reason for employee termination?  
 5. What is the average tenure of employees before termination?  
 
-#Team & Management Performance  
+Team & Management Performance  
 6. Which team leader has the highest retention rate among employees?  
 7. How does employee tenure vary across different teams?  
 8. Which cluster manager oversees the most employees?  
 9. Which line of business experiences the highest employee turnover?  
 10. Which location has the most employees and the highest churn rate?  
 
-#Business Growth & Workforce Planning  
+Business Growth & Workforce Planning  
 11. How has hiring volume changed over time?  
 12. Which months or periods experience the highest hiring rates?  
 13. What percentage of employees are currently active versus terminated?  
 14. How many employees per line of business require replacement due to terminations?  
 
-#Advanced Analytical Questions  
+Advanced Analytical Questions  
 
 Employee Retention & Attrition  
 15. What is the likelihood of an employee leaving within their first year based on historical data?  

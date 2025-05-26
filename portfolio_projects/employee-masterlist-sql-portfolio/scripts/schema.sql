@@ -5,6 +5,11 @@
 -- ===============================
 -- 1. Database Schema Definitions
 -- ===============================
+-- Create the database if it doesn't exist
+CREATE DATABASE IF NOT EXISTS masterlist;
+
+-- Use the database
+USE masterlist;
 
 CREATE TABLE employees (
     employee_id INT AUTO_INCREMENT PRIMARY KEY,
@@ -79,6 +84,15 @@ CREATE TABLE attendance_tracking (
 -- 2. Sample Data Inserts
 -- ===============================
 
+
+INSERT INTO employees (employee_id, first_name, last_name, department, hire_date, salary) VALUES
+(1, 'John', 'Doe', 'HR', '2020-05-01', 55000.00),
+(2, 'Jane', 'Smith', 'IT', '2019-03-15', 75000.00),
+(3, 'Alice', 'Johnson', 'Finance', '2021-07-20', 62000.00),
+(4, 'Bob', 'Williams', 'IT', '2018-11-03', 80000.00),
+(5, 'Emily', 'Davis', 'HR', '2022-01-10', 50000.00);
+
+
 INSERT INTO lines_of_business (lob_id, name) VALUES
 (1, 'Finance'),
 (2, 'Customer Support'),
@@ -106,7 +120,6 @@ INSERT INTO attendance_tracking (employee_id, total_working_days, present_days, 
 (3, 22, 22, NULL),
 (4, 22, 21, 'Unpaid Leave'),
 (5, 22, 19, 'Sick Leave');
-
 
 -- ===============================
 -- End of Documentation

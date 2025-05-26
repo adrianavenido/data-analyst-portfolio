@@ -1,3 +1,25 @@
+/*
+    SQL Export Instructions
+
+    - Query results can be exported to a CSV file in the MySQL server's secure uploads directory:
+      C:/ProgramData/MySQL/MySQL Server 8.0/Uploads/
+
+    - Ensure the MySQL server has write permissions to this directory and that the 'secure_file_priv' variable allows exporting to this path.
+      To check:
+        SHOW VARIABLES LIKE 'secure_file_priv';
+
+    - Example export query:
+        SELECT gender, COUNT(*) AS employee_count
+        INTO OUTFILE 'C:/ProgramData/MySQL/MySQL Server 8.0/Uploads/employees_gender_count.csv'
+        FIELDS TERMINATED BY ',' 
+        ENCLOSED BY '"'
+        LINES TERMINATED BY '\n'
+        FROM employees
+        WHERE is_active = TRUE
+        GROUP BY gender;
+*/
+
+
 -- Workforce Distribution by Gender
 -- This query provides the count of active employees categorized by gender.
 SELECT gender, COUNT(*) AS employee_count
@@ -42,3 +64,27 @@ FROM employees e
 JOIN attendance_tracking a ON e.employee_id = a.employee_id
 GROUP BY e.first_name, e.last_name
 ORDER BY total_absences DESC;
+
+
+SELECT COUNT(*) AS total_employees FROM employee_masterlist;
+
+
+SELECT department, AVG(salary) AS average_salary
+FROM employee_masterlist
+GROUP BY department;
+
+
+SELECT * 
+FROM employee_masterlist
+WHERE hire_date > '2020-01-01';
+
+
+SELECT * 
+FROM employee_masterlist
+ORDER BY salary DESC
+LIMIT 1;
+
+
+SELECT department, COUNT(*) AS employee_count
+FROM employee_masterlist
+GROUP BY department;

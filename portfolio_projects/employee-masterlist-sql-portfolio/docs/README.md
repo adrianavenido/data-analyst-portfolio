@@ -23,11 +23,15 @@ Employee-Masterlist-SQL-Portfolio/
 
 ---
 
-🛠 Tools Used
-- **MySQL** – Database management  
-- **Visual Studio Code** – SQL scripting and project documentation  
-- **Git & GitHub** – Version control for SQL queries  
-- **Power BI** – Data visualization  
+🛠 **Tools & Technologies Utilized**
+
+- **MySQL** – Reliable relational database management for structured data storage and analysis  
+- **Visual Studio Code** – Efficient SQL development, code editing, and project documentation  
+- **Git & GitHub** – Version control for project management and readiness for collaborative workflows  
+- **Microsoft Excel** – Primary data source for employee records, preprocessing, and exploratory analysis  
+- **Tableau** – Advanced data visualization and interactive dashboards (integrated via ODBC with Excel)  
+
+*This project was developed independently, demonstrating strong individual initiative and technical proficiency, while leveraging industry-standard tools that also support collaborative environments.*
 
 ---
 

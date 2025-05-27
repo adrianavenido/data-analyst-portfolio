@@ -38,6 +38,31 @@ This document details a normalized, scalable database schema for managing employ
 - **asset_tracking**: Tracks company assets assigned to employees.
 - **account_directory**: Lists account assignments and affiliations.
 
+# Capacity Target Allocation
+
+## Overview
+This document details the structure and implementation of workforce allocation across various lines of business over a 5-year contract. The distribution is staggered over the first year to gradually ramp up capacity.
+
+## Table Structure
+The `capacity_target` table holds records of monthly workforce allocations:
+
+| Column Name  | Data Type | Description |
+|-------------|----------|-------------|
+| `id`        | INT (AUTO_INCREMENT) | Unique entry identifier |
+| `lob_id`    | INT      | Foreign key linking to `lines_of_business` |
+| `target_fte` | INT      | Number of full-time employees assigned |
+| `target_month` | DATE   | Month for which the allocation is planned |
+
+Compliance & Reporting Considerations
+Data Accuracy: Ensure consistency in workforce allocation records.
+
+Forecasting & Planning: Align hiring strategy with monthly targets.
+
+Historical Tracking: Maintain audit logs for workforce compliance.
+
+
+These files can serve as your database documentation and help track workforce allocation efficiently.
+
 #### Data Integrity & Constraints
 
 - Foreign keys enforce referential integrity.

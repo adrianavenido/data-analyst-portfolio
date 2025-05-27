@@ -133,3 +133,110 @@ FROM employees e
 JOIN early_warning_indicators ew ON e.employee_id = ew.employee_id
 WHERE ew.status IN ('Consideration', 'Formal Notice','Withdrawn')
 ORDER BY e.employee_id, ew.resignation_date;
+
+SELECT * FROM capacity_target
+
+-- Ideal Headcount Distribution for Lines of Business
+
+-- Global: 1 FTE
+INSERT INTO capacity_target (lob_id, target_fte, updated_at)
+SELECT lob_id, 1, CURRENT_DATE()
+FROM lines_of_business
+WHERE lob_name = 'Global';
+
+-- Reporting: 2 FTEs
+INSERT INTO capacity_target (lob_id, target_fte, updated_at)
+SELECT lob_id, 2, CURRENT_DATE()
+FROM lines_of_business
+WHERE lob_name = 'Reporting';
+
+-- Distribute remaining 197 FTEs among Billing, Accounts Receivable, Order Management, Disputes, Cash Application
+-- Example distribution 
+-- Billing: 50, Accounts Receivable: 45, Order Management: 40, Disputes: 32, Cash Application: 30
+
+DELETE FROM capacity_target
+
+SELECT * FROM capacity_target;
+
+INSERT INTO capacity_target (lob_id, target_fte, target_month)
+VALUES
+  (1, 10, '2025-06-01'), -- Billing (Month 1)
+  (1, 20, '2025-07-01'), -- Billing (Month 2)
+  (1, 30, '2025-08-01'), -- Billing (Month 3)
+  (1, 40, '2025-09-01'), -- Billing (Month 4)
+  (1, 50, '2025-10-01'), -- Billing (Month 5)
+
+  (2, 9, '2025-06-01'), -- Accounts Receivable (Month 1)
+  (2, 18, '2025-07-01'), -- Accounts Receivable (Month 2)
+  (2, 27, '2025-08-01'), -- Accounts Receivable (Month 3)
+  (2, 36, '2025-09-01'), -- Accounts Receivable (Month 4)
+  (2, 45, '2025-10-01'), -- Accounts Receivable (Month 5)
+
+  (3, 8, '2025-06-01'), -- Order Management (Month 1)
+  (3, 16, '2025-07-01'), -- Order Management (Month 2)
+  (3, 24, '2025-08-01'), -- Order Management (Month 3)
+  (3, 32, '2025-09-01'), -- Order Management (Month 4)
+  (3, 40, '2025-10-01'), -- Order Management (Month 5)
+
+  (4, 6, '2025-06-01'), -- Disputes (Month 1)
+  (4, 12, '2025-07-01'), -- Disputes (Month 2)
+  (4, 18, '2025-08-01'), -- Disputes (Month 3)
+  (4, 24, '2025-09-01'), -- Disputes (Month 4)
+  (4, 32, '2025-10-01'), -- Disputes (Month 5)
+
+  (5, 6, '2025-06-01'), -- Cash Application (Month 1)
+  (5, 12, '2025-07-01'), -- Cash Application (Month 2)
+  (5, 18, '2025-08-01'), -- Cash Application (Month 3)
+  (5, 24, '2025-09-01'), -- Cash Application (Month 4)
+  (5, 30, '2025-10-01'); -- Cash Application (Month 5)
+
+
+SELECT * FROM capacity_target;
+
+--How many total FTEs are allocated per line of business over time?
+SELECT lob_id, SUM(target_fte) AS total_fte 
+FROM capacity_target 
+GROUP BY lob_id;
+
+--How does FTE allocation change month over month?
+SELECT target_month, SUM(target_fte) AS monthly_fte_allocation 
+FROM capacity_target 
+GROUP BY target_month 
+ORDER BY target_month;
+
+
+--Which line of business has the highest allocation in a given month?
+SELECT lob_id, target_month, target_fte 
+FROM capacity_target 
+ORDER BY target_fte DESC 
+LIMIT 1;
+
+--Are there months where fewer FTEs are allocated than expected?
+SELECT target_month, SUM(target_fte) AS total_fte 
+FROM capacity_target 
+GROUP BY target_month 
+HAVING SUM(target_fte) < (SELECT AVG(target_fte) FROM capacity_target);
+
+
+--What is the cumulative workforce allocation per business line over the first year?
+SELECT lob_id, target_month, SUM(target_fte) OVER (PARTITION BY lob_id ORDER BY target_month) AS cumulative_fte
+FROM capacity_target;
+
+
+--How does the workforce ramp-up compare across business lines?
+SELECT lob_id, target_month, target_fte, 
+       SUM(target_fte) OVER (PARTITION BY lob_id ORDER BY target_month) AS cumulative_fte
+FROM capacity_target
+ORDER BY lob_id, target_month;
+
+
+-- Track FTE allocation per month:
+SELECT target_month, SUM(target_fte) AS monthly_fte_allocation 
+FROM capacity_target 
+GROUP BY target_month 
+ORDER BY target_month;
+
+
+-- EMPLOYEE TABLE REDO
+
+SELECT * FROM capacity_target

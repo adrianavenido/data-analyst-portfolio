@@ -57,6 +57,23 @@ Business Growth & Workforce Planning
 13. What percentage of employees are currently active versus terminated?  
 14. How many employees per line of business require replacement due to terminations?  
 
+How many total FTEs are allocated per line of business over time?
+How does FTE allocation change month over month?
+Which line of business has the highest allocation in a given month?
+Are there months where fewer FTEs are allocated than expected?
+What is the cumulative workforce allocation per business line over the first year?
+
+
+
+
+## Business Questions
+- **How many total FTEs are allocated per business line?**
+- **How does FTE allocation change month-over-month?**
+- **Which business line has the highest allocation in a given month?**
+- **Are there months where allocation is below expectations?**
+- **How does the workforce ramp-up compare across business lines?**
+
+
 Advanced Analytical Questions  
 
 Employee Retention & Attrition  

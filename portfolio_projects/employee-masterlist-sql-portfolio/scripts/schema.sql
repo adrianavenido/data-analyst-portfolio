@@ -59,6 +59,18 @@ CREATE TABLE capacity_target (
     FOREIGN KEY (lob_id) REFERENCES lines_of_business(lob_id)
 );
 
+DROP TABLE IF EXISTS capacity_target
+
+CREATE TABLE capacity_target (
+    id INT AUTO_INCREMENT PRIMARY KEY,  -- Unique identifier for each entry
+    lob_id INT NOT NULL,  -- Foreign key linking to lines of business
+    target_fte INT NOT NULL,  -- Number of full-time employees assigned
+    target_month DATE NOT NULL,  -- Month for which the target is set
+    FOREIGN KEY (lob_id) REFERENCES lines_of_business(lob_id)
+);
+
+
+
 CREATE TABLE coaching_logs (
     coaching_id INT AUTO_INCREMENT PRIMARY KEY,
     employee_id INT NOT NULL,

@@ -239,4 +239,12 @@ ORDER BY target_month;
 
 -- EMPLOYEE TABLE REDO
 
-SELECT * FROM capacity_target
+TRUNCATE TABLE employees
+
+-- Export employees table to Excel-compatible CSV in the data folder
+SELECT * 
+INTO OUTFILE 'C:/Users/adria/Desktop/data-analyst-portfolio/portfolio_projects/employee-masterlist-sql-portfolio/data/employees_export.xlsx'
+FIELDS TERMINATED BY ',' 
+ENCLOSED BY '"'
+LINES TERMINATED BY '\n'
+FROM employees;

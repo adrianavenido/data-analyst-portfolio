@@ -446,3 +446,11 @@ ORDER BY a.absent_days DESC;
 */
 
 
+INSERT INTO employees (
+    first_name, last_name, gender, birth_date, hire_date, termination_date,
+    termination_reason, corporate_email, client_email, contact_number, location, is_active
+) 
+VALUES
+
+('Michael', 'Smith', 'Male', '1985-07-23', '2023-09-01', NULL, NULL, 'employee405@bpo.com', 'employee20ADF0@client.com', '123-456-7890', 'Laguna', TRUE),
+('Emily', 'Davis', 'Female', '1990-03-15', '2023-09-05', NULL, NULL, 'employee384@bpo.com', 'employee20ADF1@client.com', '987-654-3210', 'Bulacan', TRUE);

@@ -239,5 +239,435 @@ ORDER BY target_month;
 
 -- EMPLOYEE TABLE REDO
 
-DELETE TABLE employees
+DELETE FROM lines_of_business
 
+SELECT * FROM cluster_managers
+
+
+
+UPDATE cluster_managers
+SET name = 'Daniel Reyes'
+wHERE cluster_manager_id = 5
+
+INSERT INTO cluster_managers (name, line_of_business)
+VALUES
+  ('Fernando Lopez', 'Cash Application'),
+  ('Carlos Mendoza', 'Reporting');
+
+
+DELETE FROM team_leaders\
+
+
+ALTER TABLE team_leaders AUTO_INCREMENT = 1;
+
+SELECT * FROM team_leaders
+
+ALTER TABLE team_leaders
+ADD COLUMN first_name VARCHAR(100),
+ADD COLUMN last_name VARCHAR(100);
+
+
+ALTER TABLE team_leaders
+MODIFY COLUMN team_leader_id INT AUTO_INCREMENT FIRST,
+MODIFY COLUMN first_name VARCHAR(100) AFTER team_leader_id,
+MODIFY COLUMN last_name VARCHAR(100) AFTER first_name,
+MODIFY COLUMN lob_id INT AFTER last_name,
+MODIFY COLUMN cluster_manager_id INT AFTER lob_id;
+
+INSERT INTO team_leaders (first_name, last_name, lob_id, cluster_manager_id)
+VALUES
+  ('Eric', 'Hickman', 1, 1),
+  ('Jeffrey', 'Jefferson', 2, 2),
+  ('Lisa', 'Snyder', 3, 3),
+  ('Jasmine', 'Kent', 4, 4),
+  ('William', 'Bradford', 5, 5),
+  ('Bobby', 'Hancock', 6, 1),
+  ('Rachel', 'Garcia', 7, 2),
+  ('James', 'Lamb', 1, 3),
+  ('Jennifer', 'Whitaker', 2, 4),
+  ('Julie', 'Park', 3, 5);
+
+
+
+SELECT * FROM team_leaders
+
+
+SELECT * FROM lines_of_business;
+
+SELECT * FROM team_leaders;
+
+CREATE TABLE employee_lob (
+    employee_id INT,
+    lob_id INT,
+    PRIMARY KEY (employee_id, lob_id),
+    FOREIGN KEY (employee_id) REFERENCES employees(employee_id),
+    FOREIGN KEY (lob_id) REFERENCES lines_of_business (lob_id)
+);
+
+
+DROP TABLE IF EXISTS employees;
+
+
+SELECT COUNT(*) FROM employees;
+
+ALTER TABLE employees AUTO_INCREMENT = 1;
+
+-- Step 1: Add a temp column
+ALTER TABLE employees ADD COLUMN temp_id INT;
+
+-- Step 2: Assign sequential values to temp_id
+SET @counter = 0;
+UPDATE employees SET temp_id = (@counter := @counter + 1) ORDER BY employee_id;
+
+SET FOREIGN_KEY_CHECKS = 0;
+
+-- Step 3: Drop auto-increment columnALTER TABLE employees MODIFY employee_id INT;
+ALTER TABLE employees MODIFY employee_id INT;
+
+UPDATE employees SET employee_id = temp_id;
+
+ALTER TABLE employees DROP COLUMN temp_id;
+
+
+ALTER TABLE employees AUTO_INCREMENT = 201;
+
+SET FOREIGN_KEY_CHECKS = 1;
+
+ALTER TABLE employees DROP COLUMN employee_id;
+
+-- Step 4: Rename temp_id to employee_id and make it auto-increment
+ALTER TABLE employees CHANGE temp_id employee_id INT PRIMARY KEY AUTO_INCREMENT;
+
+-- Step 5 (Optional): Reset auto-increment counter
+ALTER TABLE employees AUTO_INCREMENT = 201;
+
+
+SELECT * FROM employees;
+
+
+ALTER TABLE employees
+DROP COLUMN lob_id,
+DROP COLUMN team_leader_id;
+
+
+ALTER TABLE employees DROP CONSTRAINT employees_ibfk_1;
+
+
+ALTER TABLE employees DROP CONSTRAINT employees_ibfk_2;
+
+ALTER TABLE employees
+DROP COLUMN lob_id,
+DROP COLUMN team_leader_id;
+
+SELECT * FROM employee_lob
+
+
+SELECT * FROM capacity_target
+
+
+INSERT INTO managerbusinessmapping
+VALUES
+  (1, 3), 
+  (1, 4), 
+  (2, 5), 
+  (3, 1), 
+  (3, 7), 
+  (4, 2), 
+  (6, 6);
+
+
+SELECT * FROM managerbusinessmapping;
+
+SELECT
+  cluster_managers.name AS MANAGER, 
+  lines_of_business.name AS LOB
+FROM managerbusinessmapping
+JOIN cluster_managers ON managerbusinessmapping.cluster_manager_id = cluster_managers.cluster_manager_id
+JOIN lines_of_business ON managerbusinessmapping.lob_id = lines_of_business.lob_id
+ORDER BY LOB;
+
+
+SELECT 
+    cm.name AS MANAGER, 
+    lob.business_name AS LOB
+FROM managerbusinessmapping mbm
+JOIN cluster_managers cm ON mbm.cluster_manager_id = cm.cluster_manager_id
+JOIN lines_of_business lob ON mbm.lob_id = lob.lob_id
+ORDER BY lob.business_name;
+
+
+TRUNCATE TABLE cluster_managers;
+
+
+
+SELECT * FROM cluster_managers;
+
+ALTER TABLE cluster_managers
+DROP COLUMN line_of_business;
+
+
+INSERT INTO cluster_managers (name)
+VALUES
+  ('Daniel Reyes'),
+  ('Maria Santos'),
+  ('Angela Cruz'),
+  ('Fernando Lopez'),
+  ('Carlos Mendoza');
+
+  
+
+SELECT * FROM cluster_managers
+
+SELECT * FROM lines_of_business
+
+ALTER TABLE lines_of_business
+CHANGE COLUMN name business_name VARCHAR(100);
+
+SELECT * FROM managerbusinessmapping
+
+UPDATE managerbusinessmapping
+SET cluster_manager_id = 5
+WHERE cluster_manager_id = 6;
+
+--PROBLEMATIC QUERY
+SELECT 
+  e.first_name,
+  e.last_name,
+  tl.name AS team_leader, 
+  cm.name AS cluster_manager
+FROM employees e
+JOIN team_leaders tl ON e.team_leader_id = tl.team_leader_id
+JOIN cluster_managers cm ON tl.cluster_manager_id = cm.cluster_manager_id
+
+SELECT * FROM team_leaders
+
+SELECT COUNT(*) FROM employee_lob
+
+
+
+
+
+
+-- List of Lines of Business with their cluster Managers
+SELECT 
+    lob.lob_id as 'SN',
+    cm.name AS 'Cluster Manager', 
+    lob.business_name AS 'Line of Business'
+FROM managerbusinessmapping mbm
+JOIN cluster_managers cm ON mbm.cluster_manager_id = cm.cluster_manager_id
+JOIN lines_of_business lob ON mbm.lob_id = lob.lob_id
+ORDER BY lob.lob_id;
+
+-- List of Team Leaders with their Lines of Business and Cluster Managers
+SELECT DISTINCT
+  tl.first_name, 
+  tl.last_name, 
+  lob.business_name AS 'Line of Business',
+  cm.name AS 'Cluster Manager'
+FROM team_leaders tl
+JOIN managerbusinessmapping mbm ON tl.cluster_manager_id = mbm.cluster_manager_id
+JOIN lines_of_business lob ON mbm.lob_id = lob.lob_id
+JOIN cluster_managers cm ON mbm.cluster_manager_id = cm.cluster_manager_id;
+
+
+SELECT * from team_leaders
+
+
+ALTER TABLE team_leaders DROP CONSTRAINT team_leaders_ibfk_1;
+
+ALTER TABLE team_leaders
+DROP COLUMN lob_id;
+
+
+UPDATE team_leaders
+SET cluster_manager_id = 1
+WHERE team_leader_id = 8;
+
+SELECT * FROM team_leaders;
+
+
+--Use DISTINCT: If you only need unique team_leader names, you can modify the query:
+SELECT DISTINCT 
+  tl.first_name, 
+  tl.last_name, 
+  cm.name AS 'Cluster Manager'
+FROM team_leaders tl
+JOIN managerbusinessmapping mbm ON tl.cluster_manager_id = mbm.cluster_manager_id
+JOIN cluster_managers cm ON mbm.cluster_manager_id = cm.cluster_manager_id;
+
+
+--Aggregate Data: If you want a consolidated view, consider grouping and concatenating business names:
+SELECT 
+  tl.first_name, 
+  tl.last_name, 
+  cm.name AS 'Cluster Manager',
+  GROUP_CONCAT(lob.business_name SEPARATOR ', ') AS 'Lines of Business'
+FROM team_leaders tl
+JOIN managerbusinessmapping mbm ON tl.cluster_manager_id = mbm.cluster_manager_id
+JOIN lines_of_business lob ON mbm.lob_id = lob.lob_id
+JOIN cluster_managers cm ON mbm.cluster_manager_id = cm.cluster_manager_id
+GROUP BY tl.first_name, tl.last_name, cm.name;
+
+
+ALTER TABLE team_leaders
+ADD COLUMN lob_id INT;
+
+SELECT * FROM team_leaders
+ORDER BY cluster_manager_id;
+
+ALTER TABLE team_leaders
+MODIFY COLUMN team_leader_id INT AUTO_INCREMENT PRIMARY KEY,
+MODIFY COLUMN first_name VARCHAR(100) NOT NULL,
+MODIFY COLUMN last_name VARCHAR(100) NOT NULL,
+MODIFY COLUMN lob_id INT,
+MODIFY COLUMN cluster_manager_id INT;
+
+SELECT * FROM team_leaders;
+
+
+SELECT 
+  tl.first_name, 
+  tl.last_name, 
+  lob.business_name AS 'Line of Business',
+  cm.name AS 'Cluster Manager'
+FROM team_leaders tl
+JOIN lines_of_business lob ON tl.lob_id = lob.lob_id
+JOIN cluster_managers cm ON tl.cluster_manager_id = cm.cluster_manager_id;
+
+
+/*
+```sql
+SELECT 
+  tl.first_name, 
+  tl.last_name, 
+  lob.business_name AS 'Line of Business',
+  cm.name AS 'Cluster Manager'
+FROM team_leaders tl
+JOIN lines_of_business lob ON tl.lob_id = lob.lob_id
+JOIN cluster_managers cm ON tl.cluster_manager_id = cm.cluster_manager_id;
+```
+
+### **How This Query Works:**
+✅ Retrieves **team leader names** (`first_name`, `last_name`).  
+✅ Fetches **business assignments** (`business_name`).  
+✅ Shows **cluster managers** (`name`).  
+✅ Uses **joins** to link `team_leaders` with `lines_of_business` and `cluster_managers`.  
+*/
+
+
+
+--Filter by Cluster Manager Name
+--If you want to see only team leaders under a specific manager, say "Maria Santos":
+
+SELECT 
+  tl.first_name, 
+  tl.last_name, 
+  lob.business_name AS 'Line of Business',
+  cm.name AS 'Cluster Manager'
+FROM team_leaders tl
+JOIN lines_of_business lob ON tl.lob_id = lob.lob_id
+JOIN cluster_managers cm ON tl.cluster_manager_id = cm.cluster_manager_id
+WHERE cm.name = 'Maria Santos';
+
+
+
+--Filter by Line of Business
+--If you only want to see team leaders assigned to "Billing":
+SELECT 
+  tl.first_name, 
+  tl.last_name, 
+  lob.business_name AS 'Line of Business',
+  cm.name AS 'Cluster Manager'
+FROM team_leaders tl
+JOIN lines_of_business lob ON tl.lob_id = lob.lob_id
+JOIN cluster_managers cm ON tl.cluster_manager_id = cm.cluster_manager_id
+WHERE lob.business_name = 'Billing';
+
+
+--Filter by Both (Specific Manager + Business)
+--If you want to see team leaders under "Angela Cruz" assigned to "Reporting":
+SELECT 
+  tl.first_name, 
+  tl.last_name, 
+  lob.business_name AS 'Line of Business',
+  cm.name AS 'Cluster Manager'
+FROM team_leaders tl
+JOIN lines_of_business lob ON tl.lob_id = lob.lob_id
+JOIN cluster_managers cm ON tl.cluster_manager_id = cm.cluster_manager_id
+WHERE cm.name = 'Angela Cruz' AND lob.business_name = 'Reporting';
+
+
+SELECT * FROM employee_lob
+
+
+--Query to Retrieve Employee Assignments
+SELECT 
+    e.employee_id,
+    e.first_name,
+    e.last_name,
+    lob.business_name AS 'Line of Business',
+    tl.first_name AS 'Team Leader First Name',
+    tl.last_name AS 'Team Leader Last Name',
+    cm.name AS 'Cluster Manager'
+FROM employees e
+JOIN employee_lob el ON e.employee_id = el.employee_id
+JOIN lines_of_business lob ON el.lob_id = lob.lob_id
+JOIN team_leaders tl ON tl.lob_id = lob.lob_id
+JOIN cluster_managers cm ON tl.cluster_manager_id = cm.cluster_manager_id;
+
+
+/*
+That’s a good start! Now, to create a **filterable view** that links **employees**, their assigned **line of business**, **team leaders**, and **cluster managers**, we need to join these tables properly.
+
+### **Updated Schema for Filtering Employee Assignments**
+Ensure you have the following related tables before creating the query:
+- **`employees`** (Contains employee information)
+- **`team_leaders`** (Links to `lines_of_business` and `cluster_managers`)
+- **`employee_lob`** (Mapping table between employees and lines of business)
+- **`lines_of_business`** (Business unit details)
+- **`cluster_managers`** (Manager details)
+
+---
+
+### **Query to Retrieve Employee Assignments**
+```sql
+SELECT 
+    e.employee_id,
+    e.first_name,
+    e.last_name,
+    lob.business_name AS 'Line of Business',
+    tl.first_name AS 'Team Leader First Name',
+    tl.last_name AS 'Team Leader Last Name',
+    cm.name AS 'Cluster Manager'
+FROM employees e
+JOIN employee_lob el ON e.employee_id = el.employee_id
+JOIN lines_of_business lob ON el.lob_id = lob.lob_id
+JOIN team_leaders tl ON tl.lob_id = lob.lob_id
+JOIN cluster_managers cm ON tl.cluster_manager_id = cm.cluster_manager_id;
+```
+
+---
+
+### **Key Features of This Query**
+✅ **Displays full employee details**  
+✅ **Links employees to their assigned line of business**  
+✅ **Includes the relevant team leader and cluster manager**  
+✅ **Uses JOIN operations to connect mapping relationships**  
+
+---
+
+### **Optional Filters**
+Want to refine the data further? Add a `WHERE` clause:
+#### **Filter by Specific Employee**
+```sql
+WHERE e.first_name = 'John' AND e.last_name = 'Doe';
+```
+#### **Filter by Specific Business Name**
+```sql
+WHERE lob.business_name = 'Billing';
+```
+#### **Filter by Specific Cluster Manager**
+```sql
+WHERE cm.name = 'Maria Santos';
+```
+*/  

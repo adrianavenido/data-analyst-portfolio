@@ -32,6 +32,33 @@ CREATE TABLE employees (
     FOREIGN KEY (team_leader_id) REFERENCES team_leaders(team_leader_id)
 );
 
+
+-- Reorder columns in the employees table to match the specified sequence
+ALTER TABLE employees
+MODIFY COLUMN employee_id INT AUTO_INCREMENT FIRST,
+MODIFY COLUMN first_name VARCHAR(100) NOT NULL AFTER employee_id,
+MODIFY COLUMN last_name VARCHAR(100) NOT NULL AFTER first_name,
+MODIFY COLUMN gender ENUM('Male', 'Female') NOT NULL AFTER last_name,
+MODIFY COLUMN birth_date DATE NOT NULL AFTER gender,
+MODIFY COLUMN hire_date DATE NOT NULL AFTER birth_date,
+MODIFY COLUMN termination_date DATE AFTER hire_date,
+MODIFY COLUMN termination_reason ENUM('Voluntary', 'Involuntary') AFTER termination_date,
+MODIFY COLUMN corporate_email VARCHAR(100) UNIQUE NOT NULL AFTER termination_reason,
+MODIFY COLUMN client_email VARCHAR(100) UNIQUE NOT NULL AFTER corporate_email,
+MODIFY COLUMN contact_number VARCHAR(20) NOT NULL AFTER client_email,
+MODIFY COLUMN location VARCHAR(100) NOT NULL AFTER contact_number,
+MODIFY COLUMN is_active BOOLEAN DEFAULT TRUE AFTER location;
+
+
+
+
+
+SELECT * FROM employees
+
+ALTER TABLE employees
+DROP COLUMN lob_id,
+DROP COLUMN team_leader_id;
+
 CREATE TABLE team_leaders (
     team_leader_id INT AUTO_INCREMENT PRIMARY KEY,
     name VARCHAR(100) NOT NULL,
@@ -195,6 +222,54 @@ INSERT INTO early_warning_indicators (employee_id, reason, resignation_date, sta
 (7, 'Personal reasons affecting work-life balance.', NULL, 'Withdrawn', '2025-06-20 12:00:00'),
 (10, 'Received a higher-paying job offer.', '2025-08-01', 'Formal Notice', '2025-07-10 10:30:00');
 
+
+
+CREATE TABLE employee_lob (
+    employee_id INT,
+    lob_id INT,
+    PRIMARY KEY (employee_id, lob_id),
+    FOREIGN KEY (employee_id) REFERENCES employees(employee_id),
+    FOREIGN KEY (lob_id) REFERENCES lines_of_business (lob_id)
+);
+
+
+-- Junction table to associate managers with multiple business lines
+CREATE TABLE ManagerBusinessMapping (
+    cluster_manager_id INT,
+    lob_id INT,
+    PRIMARY KEY (cluster_manager_id, lob_id),
+    FOREIGN KEY (cluster_manager_id) REFERENCES cluster_managers(cluster_manager_id),
+    FOREIGN KEY (lob_id) REFERENCES lines_of_business(lob_id)
+);
+
+SELECT * FROM managerbusinessmapping;
+
 -- ===============================
 -- End of Documentation
 -- ===============================
+
+
+CREATE TABLE team_leaders (
+    team_leader_id INT PRIMARY KEY AUTO_INCREMENT,
+    first_name VARCHAR(50) NOT NULL,
+    last_name VARCHAR(50) NOT NULL,
+    lob_id INT NOT NULL,
+    cluster_manager_id INT NOT NULL,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+    FOREIGN KEY (lob_id) REFERENCES lines_of_business(lob_id),
+    FOREIGN KEY (cluster_manager_id) REFERENCES cluster_managers(cluster_manager_id)
+);
+
+
+INSERT INTO team_leaders (first_name, last_name, lob_id, cluster_manager_id) VALUES
+('Eric', 'Hickman', 3, 1),
+('Jeffrey', 'Jefferson', 4, 1),
+('Lisa', 'Snyder', 5, 2),
+('Jasmine', 'Kent', 1, 3),
+('William', 'Bradford', 7, 3),
+('Bobby', 'Hancock', 2, 4),
+('Rachel', 'Garcia', 6, 5),
+('James', 'Lamb', 3, 1),
+('Jennifer', 'Whitaker', 5, 2),
+('Julie', 'Park', 7, 3);

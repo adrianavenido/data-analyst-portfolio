@@ -49,23 +49,11 @@
 
 ## 7. Map Chart (Optional)
 
-If your employee data includes location information (e.g., city or municipality within the National Capital Region), you can create a map chart in Excel:
-
-- Prepare a column with location names (e.g., "Quezon City", "Makati", etc.).
-- Summarize employee counts or other metrics by location.
-- Select your summarized data and insert a **Map Chart** via `Insert > Charts > Maps`.
-- Excel will visualize the distribution of employees across the National Capital Region.
-
-> **Note:** Map charts require Excel 2019 or Microsoft 365 and an active internet connection for geocoding.
-
-## 8. Sample Employee Data Table
-
-| Employee ID | Name           | Department   | Job Title        | Gender | Hire Date  | Status     | Location      | Salary  | Tenure (Years) |
-|-------------|----------------|--------------|------------------|--------|------------|------------|---------------|---------|----------------|
-| 1001        | Juan Dela Cruz | HR           | HR Manager       | Male   | 2018-03-15 | Active     | Makati        | 55000   | 6.2            |
-| 1002        | Maria Santos   | IT           | Data Analyst     | Female | 2020-07-01 | Active     | Quezon City   | 48000   | 3.0            |
-| 1003        | Jose Reyes     | Finance      | Accountant       | Male   | 2019-01-10 | Resigned   | Manila        | 42000   | 2.5            |
-| 1004        | Ana Lim        | Marketing    | Marketing Lead   | Female | 2021-05-20 | Active     | Pasig         | 51000   | 2.1            |
-| 1005        | Mark Tan       | IT           | Software Dev     | Male   | 2017-11-03 | Active     | Taguig        | 60000   | 6.7            |
-
-> **Tip:** Expand this table with your actual employee data for analysis in Excel.
+- Embed a map chart created with [Datawrapper](https://www.datawrapper.de/) to visualize employee distribution by location (NCR Region).
+- Steps:
+    1. Export employee location data (e.g., city, region, or country) from your masterlist.
+    2. Upload the data to Datawrapper and create a suitable map (e.g., symbol map or choropleth).
+    3. Copy the embed code provided by Datawrapper.
+    4. Insert the embed code into your Excel dashboard using a web viewer or as a hyperlink to the interactive map.
+- Example:  
+    `[View Interactive Employee Location Map (Datawrapper)](https://www.datawrapper.de/_/your-map-id/)`

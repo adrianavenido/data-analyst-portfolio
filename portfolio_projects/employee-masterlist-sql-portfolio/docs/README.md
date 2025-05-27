@@ -132,6 +132,6 @@ This **normalized MySQL schema** ensures structured workforce analysis and effic
 ---
 
 📌 Notes
-✔ Full schema implementation is available in [`scripts/schema.sql`](../scripts/schema.sql).  
-✔ SQL queries for business insights are documented in [`scripts/queries.sql`](../scripts/queries.sql).  
-✔ Data preprocessing methods are outlined in [`docs/database_design.md`](../docs/database_design.md).  
+✔ Full schema implementation is available in [`../scripts/schema.sql`](../scripts/schema.sql).  
+✔ SQL queries for business insights are documented in [`../scripts/queries.sql`](../scripts/queries.sql).  
+✔ Data preprocessing methods are outlined in [`database_design.md`](database_design.md).  

@@ -1,0 +1,105 @@
+erDiagram
+    employees {
+        INT employee_id PK
+        VARCHAR first_name
+        VARCHAR last_name
+        ENUM gender
+        DATE date_of_birth
+        DATE hire_date
+        DATE termination_date
+        ENUM status
+        VARCHAR contact_number
+        VARCHAR email
+        VARCHAR address
+        INT cluster_id FK
+        INT team_id FK
+        INT lob_id FK
+    }
+    lines_of_business {
+        INT lob_id PK
+        VARCHAR lob_name
+    }
+    teams {
+        INT team_id PK
+        VARCHAR team_name
+        INT team_leader_id FK
+        INT cluster_id FK
+    }
+    clusters {
+        INT cluster_id PK
+        VARCHAR cluster_name
+        INT cluster_manager_id FK
+    }
+    emergency_contacts {
+        INT contact_id PK
+        INT employee_id FK
+        VARCHAR name
+        VARCHAR relationship
+        VARCHAR phone
+    }
+    performance_reviews {
+        INT review_id PK
+        INT employee_id FK
+        DATE review_date
+        INT reviewer_id FK
+        INT score
+        VARCHAR notes
+    }
+    attendance_logs {
+        INT attendance_id PK
+        INT employee_id FK
+        DATE date
+        ENUM shift
+        ENUM status
+    }
+    disciplinary_actions {
+        INT action_id PK
+        INT employee_id FK
+        DATE date
+        VARCHAR type
+        VARCHAR description
+        VARCHAR outcome
+    }
+    bcp_readiness {
+        INT bcp_id PK
+        INT employee_id FK
+        ENUM status
+        DATE last_updated
+    }
+    seat_assignments {
+        INT seat_id PK
+        INT employee_id FK
+        VARCHAR location
+        VARCHAR seat_number
+        DATE effective_date
+    }
+    asset_tracking {
+        INT asset_id PK
+        INT employee_id FK
+        VARCHAR asset_tag
+        VARCHAR type
+        DATE assigned_date
+        DATE returned_date
+    }
+    account_directory {
+        INT account_id PK
+        INT employee_id FK
+        VARCHAR account_name
+        INT team_id FK
+        INT lob_id FK
+    }
+
+    employees ||--o{ emergency_contacts : "has"
+    employees ||--o{ performance_reviews : "reviewed"
+    employees ||--o{ attendance_logs : "attendance"
+    employees ||--o{ disciplinary_actions : "subject to"
+    employees ||--o{ bcp_readiness : "bcp status"
+    employees ||--o{ seat_assignments : "assigned seat"
+    employees ||--o{ asset_tracking : "assigned asset"
+    employees ||--o{ account_directory : "account"
+    employees }o--|| teams : "member of"
+    employees }o--|| clusters : "part of"
+    employees }o--|| lines_of_business : "assigned to"
+    teams ||--o{ employees : "led by"
+    teams }o--|| clusters : "belongs to"
+    clusters ||--o{ employees : "managed by"

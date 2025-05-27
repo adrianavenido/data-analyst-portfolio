@@ -20,6 +20,7 @@ Employee-Masterlist-SQL-Portfolio/
 │   ├── database_design.md      # Schema & table descriptions 
 │   ├── query_reference.md      # SQL query documentation 
 │   ├── analytics_methods.md    # Statistical analysis & insights
+│   ├── employee_er_diagram.mmd # Entity-Relationship (ER) diagram (Mermaid format)
 
 ---
 
@@ -132,6 +133,7 @@ This **normalized MySQL schema** ensures structured workforce analysis and effic
 ---
 
 📌 Notes
-✔ Full schema implementation is available in [`../scripts/schema.sql`](../scripts/schema.sql).  
-✔ SQL queries for business insights are documented in [`../scripts/queries.sql`](../scripts/queries.sql).  
-✔ Data preprocessing methods are outlined in [`database_design.md`](database_design.md).  
+✔ **Full database schema**: See [`../scripts/schema.sql`](../scripts/schema.sql) for complete table definitions and relationships.  
+✔ **Business insights SQL**: Explore key queries in [`../scripts/queries.sql`](../scripts/queries.sql).  
+✔ **Data preprocessing & design**: Methods and schema details are in [`../docs/database_design.md`](../docs/database_design.md).  
+✔ **Entity-Relationship Diagram**: [View ER Diagram (Mermaid)](./employee_er_diagram.mmd)

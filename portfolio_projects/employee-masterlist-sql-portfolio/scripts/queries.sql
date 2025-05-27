@@ -671,3 +671,80 @@ WHERE lob.business_name = 'Billing';
 WHERE cm.name = 'Maria Santos';
 ```
 */  
+
+
+SELECT 
+    e.employee_id,
+    e.first_name,
+    e.last_name,
+    lob.business_name AS 'Line of Business',
+    tl.first_name AS 'Team Leader First Name',
+    tl.last_name AS 'Team Leader Last Name',
+    cm.name AS 'Cluster Manager'
+FROM employees e
+JOIN employee_lob el ON e.employee_id = el.employee_id
+JOIN lines_of_business lob ON el.lob_id = lob.lob_id
+JOIN team_leaders tl ON tl.lob_id = lob.lob_id
+JOIN cluster_managers cm ON tl.cluster_manager_id = cm.cluster_manager_id
+ORDER BY e.employee_id;
+
+
+SELECT
+    e.employee_id,
+    e.first_name,
+    e.last_name,
+    lob.business_name AS 'Line of Business'
+    FROM employees e
+    JOIN employee_lob el ON e.employee_id = el.employee_id
+    JOIN lines_of_business lob ON el.lob_id = lob.lob_id
+    ORDER BY e.employee_id;
+
+SELECT * FROM employees
+
+
+
+SELECT DISTINCT
+  e.employee_id,
+  e.first_name,
+  e.last_name,
+  lob.business_name AS 'Line of Business'
+FROM employees e
+JOIN employee_lob el ON e.employee_id = el.employee_id
+JOIN lines_of_business lob ON el.lob_id = lob.lob_id
+ORDER BY e.employee_id;
+
+
+-- This SQL query retrieves unique employee records along with their associated business lines. It joins three tables: `employees`, `employee_lob`, and `lines_of_business`. The `GROUP_CONCAT()` function consolidates multiple business lines into a single string per employee, separated by commas. The result is grouped by employee details to ensure each employee appears in a single row, regardless of how many business lines they are assigned to.
+
+SELECT 
+  e.employee_id,
+  e.first_name,
+  e.last_name,
+  GROUP_CONCAT(lob.business_name SEPARATOR ', ') AS 'Lines of Business'
+FROM employees e
+JOIN employee_lob el ON e.employee_id = el.employee_id
+JOIN lines_of_business lob ON el.lob_id = lob.lob_id
+GROUP BY e.employee_id, e.first_name, e.last_name
+ORDER BY e.employee_id;
+
+
+-- Active vs Inactive Employees by Line of Business
+SELECT 
+  lob.business_name AS 'Line of Business',
+  COUNT(CASE WHEN e.is_active = TRUE THEN e.employee_id END) AS 'Active Employee Count',
+  COUNT(CASE WHEN e.is_active = FALSE THEN e.employee_id END) AS 'Inactive Employee Count'
+FROM employees e
+JOIN employee_lob el ON e.employee_id = el.employee_id
+JOIN lines_of_business lob ON el.lob_id = lob.lob_id
+GROUP BY lob.business_name;
+
+
+-- Active Employees by Line of Business
+SELECT 
+  lob.business_name AS 'Line of Business',
+  COUNT(e.employee_id) AS 'Employee Count'
+FROM employees e
+JOIN employee_lob el ON e.employee_id = el.employee_id
+JOIN lines_of_business lob ON el.lob_id = lob.lob_id
+WHERE e.is_active = TRUE
+GROUP BY lob.business_name;

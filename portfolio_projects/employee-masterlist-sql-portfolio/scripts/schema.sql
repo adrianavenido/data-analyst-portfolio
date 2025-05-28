@@ -235,11 +235,9 @@ CREATE TABLE employee_lob (
 
 -- Junction table to associate managers with multiple business lines
 CREATE TABLE ManagerBusinessMapping (
+    assignment_id INT AUTO_INCREMENT PRIMARY KEY,
     cluster_manager_id INT,
-    lob_id INT,
-    PRIMARY KEY (cluster_manager_id, lob_id),
-    FOREIGN KEY (cluster_manager_id) REFERENCES cluster_managers(cluster_manager_id),
-    FOREIGN KEY (lob_id) REFERENCES lines_of_business(lob_id)
+    lob_id INT
 );
 
 SELECT * FROM managerbusinessmapping;

@@ -522,9 +522,10 @@ MODIFY COLUMN last_name VARCHAR(100) NOT NULL,
 MODIFY COLUMN lob_id INT,
 MODIFY COLUMN cluster_manager_id INT;
 
-SELECT * FROM team_leaders;
+SELECT * FROM team_leaders ORDER BY lob_id;
 
 
+-- Team Leaders with Lines of Business and Cluster Managers
 SELECT 
   tl.first_name, 
   tl.last_name, 
@@ -581,7 +582,7 @@ SELECT
 FROM team_leaders tl
 JOIN lines_of_business lob ON tl.lob_id = lob.lob_id
 JOIN cluster_managers cm ON tl.cluster_manager_id = cm.cluster_manager_id
-WHERE lob.business_name = 'Billing';
+WHERE lob.business_name = 'disputes';
 
 
 --Filter by Both (Specific Manager + Business)
@@ -748,3 +749,241 @@ JOIN employee_lob el ON e.employee_id = el.employee_id
 JOIN lines_of_business lob ON el.lob_id = lob.lob_id
 WHERE e.is_active = TRUE
 GROUP BY lob.business_name;
+
+
+--Update team leader assignments
+UPDATE team_leaders
+SET lob_id = 2
+WHERE team_leader_id = 4;
+
+UPDATE team_leaders
+SET lob_id = 6
+WHERE team_leader_id = 10;
+
+UPDATE team_leaders
+SET cluster_manager_id= 5
+WHERE team_leader_id =10;
+
+SELECT * from team_leaders ORDER BY lob_id
+
+
+SELECT 
+    cm.name AS 'Manager',
+    COUNT(DISTINCT tl.team_leader_id) AS 'Team Leaders'
+FROM cluster_managers cm
+JOIN team_leaders tl ON cm.cluster_manager_id = tl.cluster_manager_id
+GROUP BY cm.name;
+
+SELECT
+    cm.name AS 'Manager',
+    tl.first_name AS 'Team Leader First Name',
+    tl.last_name AS 'Team Leader Last Name',
+    COUNT(DISTINCT e.employee_id) AS 'Employees'
+FROM cluster_managers cm
+JOIN team_leaders tl ON cm.cluster_manager_id = tl.cluster_manager_id
+JOIN employee_lob el ON tl.team_leader_id = el.lob_id
+JOIN employees e ON el.employee_id = e.employee_id
+WHERE e.is_active = TRUE
+GROUP BY cm.name, tl.first_name, tl.last_name
+ORDER BY cm.name, tl.first_name, tl.last_name;
+
+
+SELECT
+    COUNT(DISTINCT e.employee_id) AS 'Total Employees'
+FROM cluster_managers cm
+JOIN team_leaders tl ON cm.cluster_manager_id = tl.cluster_manager_id
+JOIN employee_lob el ON tl.team_leader_id = el.lob_id
+JOIN employees e ON el.employee_id = e.employee_id
+WHERE e.is_active = TRUE;
+
+SELECT COUNT(DISTINCT employee_id) AS 'Total Employees'
+FROM employees;
+
+UPDATE managerbusinessmapping
+SET cluster_manager_id = 2
+WHERE lob_id = 2;
+
+SELECT * from managerbusinessmapping ORDER BY cluster_manager_id
+
+INSERT INTO ManagerBusinessMapping (cluster_manager_id, lob_id) VALUES
+(NULL, NULL),
+(NULL, NULL),
+(2, 2),
+(3, 3),
+(3, 4),
+(4, 5),
+(5, 6);
+
+
+SELECT * FROM employee_lob
+
+SELECT * FROM team_leaders ORDER BY lob_id;
+
+UPDATE team_leaders
+SET cluster_manager_id = 4
+WHERE lob_id = 5;
+
+UPDATE team_leaders
+SET lob_id = 3
+WHERE team_leader_id = 2;
+
+UPDATE team_leaders
+SET CLUS = 4
+WHERE team_leader_id = 8;
+
+
+
+SELECT
+    cm.name AS 'Manager',
+    tl.first_name AS 'Team Leader First Name',
+    tl.last_name AS 'Team Leader Last Name',
+    COUNT(DISTINCT e.employee_id) AS 'Employees'
+FROM cluster_managers cm
+JOIN managerbusinessmapping mbm ON cm.cluster_manager_id = mbm.cluster_manager_id
+JOIN team_leaders tl ON mbm.lob_id = tl.lob_id
+JOIN employee_lob el ON tl.team_leader_id = el.lob_id
+JOIN employees e ON el.employee_id = e.employee_id
+WHERE e.is_active = TRUE
+GROUP BY cm.name, tl.first_name, tl.last_name
+ORDER BY cm.name, tl.first_name, tl.last_name;
+-- This query retrieves the count of employees under each team leader, grouped by cluster manager and team leader names.
+
+
+SELECT * FROM cluster_managers
+
+SELECT * FROM team_leaders ORDER BY cluster_manager_id
+
+SELECT * FROM managerbusinessmapping
+
+
+SELECT
+    tl.first_name AS 'Team Leader First Name',
+    tl.last_name AS 'Team Leader Last Name',
+    COUNT(DISTINCT e.employee_id) AS 'Employees'
+FROM team_leaders tl
+JOIN employee_lob el ON tl.team_leader_id = el.lob_id
+JOIN employees e ON el.employee_id = e.employee_id
+WHERE e.is_active = TRUE
+GROUP BY tl.first_name, tl.last_name
+ORDER BY tl.first_name, tl.last_name;
+
+
+UPDATE employee_lob
+SET lob_id = 
+WHERE employee_id = 1;
+
+
+SELECT 
+    first_name,
+    last_name,
+    COUNT(DISTINCT employee_id) AS 'Employee Count'
+FROM team_leaders
+JOIN employee_lob ON team_leaders.team_leader_id = employee_lob.lob_id
+GROUP BY first_name, last_name
+
+
+SELECT COUNT(*) FROM team_leaders;
+
+
+SELECT 
+
+  tl.team_leader_id, 
+  cm.name AS 'Manager',
+  tl.first_name,
+  tl.last_name,
+  COUNT(el.employee_id) AS employee_count
+FROM team_leaders tl
+LEFT JOIN employee_lob el ON tl.lob_id = el.lob_id
+JOIN cluster_managers cm ON tl.cluster_manager_id = cm.cluster_manager_id
+GROUP BY tl.team_leader_id
+ORDER BY tl.team_leader_id,cm.name;
+
+/*
+Your two queries differ in **how they join tables and count employees**, which leads to discrepancies in the number of team leaders returned.
+
+### **Key Differences:**
+1. **JOIN Conditions:**
+   - The first query correctly joins `team_leaders` (`tl`) to `employee_lob` (`el`) using `lob_id`. 
+   - The second query incorrectly attempts to join `team_leaders` (`tl`) to `employee_lob` (`el`) using `team_leader_id = el.lob_id`, which is **likely incorrect** since `lob_id` refers to the line of business, not the leader.
+
+2. **COUNT Aggregation:**
+   - In the first query, you count `el.employee_id`, ensuring all employees under a `lob_id` are considered.
+   - In the second query, you count **distinct `e.employee_id`**, which could lead to fewer records due to the nature of the join.
+
+3. **Filters (`WHERE` Clause):**
+   - The second query includes `WHERE e.is_active = TRUE`, meaning it only counts active employees.
+   - The first query does not filter for active employees, potentially counting more records.
+
+### **Why Does the Second Query Return Incorrect Team Leader Results?**
+- **Incorrect Join:** Since `team_leader_id = el.lob_id` in the second query is likely wrong, some team leaders may be **filtered out** due to mismatching data.
+- **Filtering Active Employees:** If some team leaders only have inactive employees, they would be **excluded** in the second query.
+
+### **How to Fix the Second Query?**
+Try correcting the JOIN condition:
+```sql
+JOIN employee_lob el ON tl.lob_id = el.lob_id
+```
+instead of
+```sql
+JOIN employee_lob el ON tl.team_leader_id = el.lob_id
+```
+
+Would you like me to refine the query further? You've already cracked the issue with the first query, which is great work!
+*/
+
+SELECT COUNT(el.employee_id) AS total_employee_count
+FROM team_leaders tl
+LEFT JOIN employee_lob el ON tl.lob_id = el.lob_id;
+
+SELECT SUM(employee_count) AS total_employee_count
+FROM (
+    SELECT COUNT(el.employee_id) AS employee_count
+    FROM team_leaders tl
+    LEFT JOIN employee_lob el ON tl.lob_id = el.lob_id
+    GROUP BY tl.team_leader_id
+) AS subquery;
+
+
+SELECT employee_id, COUNT(*) 
+FROM employee_lob 
+GROUP BY employee_id 
+HAVING COUNT(*) > 1;
+
+SELECT COUNT(DISTINCT el.employee_id) AS total_employee_count
+FROM team_leaders tl
+LEFT JOIN employee_lob el ON tl.lob_id = el.lob_id;
+
+
+SELECT COUNT(DISTINCT employee_id) AS unique_employee_count
+FROM employee_lob;
+
+SELECT COUNT(DISTINCT el.employee_id) AS total_employee_count
+FROM team_leaders tl
+LEFT JOIN employee_lob el ON tl.lob_id = el.lob_id;
+
+SELECT 
+-- tl.team_leader_id, 
+-- cm.name AS 'Manager',
+    tl.first_name,
+    tl.last_name,
+    COUNT(DISTINCT el.employee_id) AS employee_count
+FROM team_leaders tl
+LEFT JOIN employee_lob el ON tl.lob_id = el.lob_id
+-- JOIN cluster_managers cm ON tl.cluster_manager_id = cm.cluster_manager_id
+-- WHERE tl.first_name = 'Eric' AND TL.last_name = 'Hickman'
+GROUP BY tl.team_leader_id
+ORDER BY tl.team_leader_id;
+
+
+CREATE VIEW employee_supervisors AS
+SELECT
+    e.*,
+    CONCAT(tl.first_name, ' ', tl.last_name) AS 'Supervisor',
+    cm.name AS 'Manager'
+FROM employees e
+JOIN employee_lob el ON e.employee_id = el.employee_id
+JOIN team_leaders tl ON el.lob_id = tl.lob_id
+JOIN cluster_managers cm ON tl.cluster_manager_id = cm.cluster_manager_id;
+
+
+

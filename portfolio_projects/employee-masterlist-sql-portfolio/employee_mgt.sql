@@ -487,3 +487,241 @@ SELECT
     DATEDIFF(termination_date, hire_date) / 365 AS tenure_years
 FROM employees
 WHERE termination_date IS NOT NULL;
+
+
+SELECT * FROM employee_assignments
+
+SELECT * FROM employee_movements
+
+UPDATE employee_assignments
+SET team_leader_id = 1, cluster_manager_id = 1
+WHERE employee_id = 4;
+
+SELECT * FROM employee_assignments
+WHERE employee_id = 4;
+
+
+DROP VIEW IF EXISTS employee_assignment_view;
+
+SELECT * from employees
+
+UPDATE employees
+SET termination_date = NULL, termination_reason = NULL
+WHERE employee_id = 34;
+
+SELECT * FROM termination_audit_log
+
+
+SELECT 
+    e.employee_id, 
+    e.first_name AS Employee_First_Name, 
+    e.last_name AS Employee_Last_Name, 
+    e.gender, 
+    e.location, 
+    CONCAT(tl.first_name, ' ', tl.last_name) AS Supervisor_Name, -- Correcting Supervisor to show Team Leader
+    cm.name AS Cluster_Manager_Name, 
+    lob.name AS Line_of_Business, 
+    e.hire_date,
+    ea.assigned_date
+FROM employees e
+JOIN employee_assignments ea ON e.employee_id = ea.employee_id
+JOIN team_leaders tl ON ea.team_leader_id = tl.team_leader_id
+JOIN cluster_managers cm ON ea.cluster_manager_id = cm.cluster_manager_id
+JOIN lines_of_business lob ON tl.lob_id = lob.lob_id
+ORDER BY e.employee_id;
+
+SELECT COUNT(*) from employees WHERE is_active = 0;
+
+SELECT team_leader_id,COUNT(*) from employee_assignments GROUP BY team_leader_id;
+
+SELECT * FROM employee_assignments
+
+INSERT INTO employee_assignments (employee_id, team_leader_id, cluster_manager_id) VALUES
+(31, 1, 1), -- New employee assigned to Team Leader 1, Cluster Manager 1
+(32, 2, 2), -- New employee assigned to Team Leader 2, Cluster Manager 2
+(33, 3, 2), -- New employee assigned to Team Leader 3, Cluster Manager 2
+(34, 4, 3);
+
+
+SELECT * FROM employees
+
+SELECT 
+    e.employee_id, 
+    e.first_name AS Employee_First_Name, 
+    e.last_name AS Employee_Last_Name, 
+    e.gender, 
+    e.location, 
+    CONCAT(tl.first_name, ' ', tl.last_name) AS Supervisor_Name, 
+    cm.name AS Cluster_Manager_Name, 
+    lob.name AS Line_of_Business, 
+    ea.assigned_date,
+    ROUND(DATEDIFF(CURDATE(), ea.assigned_date) / 365.25, 2) AS Tenure_Years
+FROM employees e
+JOIN employee_assignments ea ON e.employee_id = ea.employee_id
+JOIN team_leaders tl ON ea.team_leader_id = tl.team_leader_id
+JOIN cluster_managers cm ON ea.cluster_manager_id = cm.cluster_manager_id
+JOIN lines_of_business lob ON tl.lob_id = lob.lob_id
+ORDER BY e.employee_id;
+
+
+SELECT 
+    e.employee_id, 
+    e.first_name AS Employee_First_Name, 
+    e.last_name AS Employee_Last_Name, 
+    e.gender, 
+    e.location, 
+    CONCAT(tl.first_name, ' ', tl.last_name) AS Supervisor_Name, 
+    cm.name AS Cluster_Manager_Name, 
+    lob.name AS Line_of_Business, 
+    ea.assigned_date,
+    ROUND(DATEDIFF(CURDATE(), ea.assigned_date) / 30.44, 1) AS Tenure_Months
+FROM employees e
+JOIN employee_assignments ea ON e.employee_id = ea.employee_id
+JOIN team_leaders tl ON ea.team_leader_id = tl.team_leader_id
+JOIN cluster_managers cm ON ea.cluster_manager_id = cm.cluster_manager_id
+JOIN lines_of_business lob ON tl.lob_id = lob.lob_id
+ORDER BY e.employee_id;
+
+
+SELECT 
+    e.employee_id, 
+    e.first_name AS Employee_First_Name, 
+    e.last_name AS Employee_Last_Name, 
+    e.gender, 
+    e.location, 
+    CONCAT(tl.first_name, ' ', tl.last_name) AS Supervisor_Name, 
+    cm.name AS Cluster_Manager_Name, 
+    lob.name AS Line_of_Business, 
+    ea.assigned_date,
+    DATEDIFF(CURDATE(), ea.assigned_date) AS Tenure_Days
+FROM employees e
+JOIN employee_assignments ea ON e.employee_id = ea.employee_id
+JOIN team_leaders tl ON ea.team_leader_id = tl.team_leader_id
+JOIN cluster_managers cm ON ea.cluster_manager_id = cm.cluster_manager_id
+JOIN lines_of_business lob ON tl.lob_id = lob.lob_id
+ORDER BY e.employee_id;
+
+CREATE  VIEW employee_assignment_view AS
+SELECT 
+    e.employee_id, 
+    e.first_name AS Employee_First_Name, 
+    e.last_name AS Employee_Last_Name, 
+    e.gender, 
+    e.location, 
+    CONCAT(tl.first_name, ' ', tl.last_name) AS Supervisor_Name, 
+    cm.name AS Cluster_Manager_Name, 
+    lob.name AS Line_of_Business, 
+    e.hire_date,
+    e.termination_date,
+    ea.assigned_date,
+    ROUND(DATEDIFF(CURDATE(), e.hire_date)/ 365.25, 2) AS Company_Tenure_Years,
+    DATEDIFF(CURDATE(), ea.assigned_date) AS Assignment_Tenure_Days
+FROM employees e
+JOIN employee_assignments ea ON e.employee_id = ea.employee_id
+JOIN team_leaders tl ON ea.team_leader_id = tl.team_leader_id
+JOIN cluster_managers cm ON ea.cluster_manager_id = cm.cluster_manager_id
+JOIN lines_of_business lob ON tl.lob_id = lob.lob_id
+ORDER BY e.employee_id;
+
+
+DROP VIEW IF EXISTS employee_assignment_view;
+
+
+
+
+-- Define the time period
+SET @start_date = '2025-04-01';
+SET @end_date = '2025-04-30';
+
+-- Calculate attrition rate
+SELECT 
+    COUNT(CASE WHEN termination_date BETWEEN @start_date AND @end_date THEN 1 END) AS employees_left,
+    (
+        (
+            SELECT COUNT(*) 
+            FROM employees 
+            WHERE hire_date <= @start_date AND (termination_date IS NULL OR termination_date >= @start_date)
+        ) +
+        (
+            SELECT COUNT(*) 
+            FROM employees 
+            WHERE hire_date <= @end_date AND (termination_date IS NULL OR termination_date >= @end_date)
+        )
+    ) / 2 AS avg_employees,
+    ROUND(
+        (
+            COUNT(CASE WHEN termination_date BETWEEN @start_date AND @end_date THEN 1 END) * 100.0 /
+            (
+                (
+                    SELECT COUNT(*) 
+                    FROM employees 
+                    WHERE hire_date <= @start_date AND (termination_date IS NULL OR termination_date >= @start_date)
+                ) +
+                (
+                    SELECT COUNT(*) 
+                    FROM employees 
+                    WHERE hire_date <= @end_date AND (termination_date IS NULL OR termination_date >= @end_date)
+                )
+            ) / 2
+        ), 2
+    ) AS attrition_rate_percentage;
+
+
+SELECT * from employees
+
+SELECT termination_date FROM employees WHERE termination_date IS NOT NULL;
+
+
+-- test query for employees left in April 2025
+SET @start_date = '2025-04-01';
+SET @end_date = '2025-04-30';
+
+
+SELECT 
+    COUNT(*) AS employees_left
+FROM employees
+WHERE termination_date BETWEEN @start_date AND @end_date;
+
+
+
+SELECT * FROM employees
+
+-- working query for attrition rate in April 2025
+SET @start_date = '2025-04-01';
+SET @end_date = '2025-05-31';
+
+SELECT 
+    COUNT(CASE WHEN termination_date BETWEEN @start_date AND @end_date THEN 1 END) AS employees_left,
+    (
+        (
+            SELECT COUNT(*) 
+            FROM employees 
+            WHERE hire_date <= @start_date AND (termination_date IS NULL OR termination_date >= @start_date)
+        ) +
+        (
+            SELECT COUNT(*) 
+            FROM employees 
+            WHERE hire_date <= @end_date AND (termination_date IS NULL OR termination_date >= @end_date)
+        )
+    ) / 2 AS avg_employees,
+    ROUND(
+        (
+            COUNT(CASE WHEN termination_date BETWEEN @start_date AND @end_date THEN 1 END) * 100.0 /
+            (
+                (
+                    SELECT COUNT(*) 
+                    FROM employees 
+                    WHERE hire_date <= @start_date AND (termination_date IS NULL OR termination_date >= @start_date)
+                ) +
+                (
+                    SELECT COUNT(*) 
+                    FROM employees 
+                    WHERE hire_date <= @end_date AND (termination_date IS NULL OR termination_date >= @end_date)
+                )
+            ) / 2
+        ), 2
+    ) AS attrition_rate_percentage
+FROM employees;
+
+
+SELECT * from employees ORDER BY hire_date DESC;

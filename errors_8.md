@@ -99,6 +99,7 @@ Here’s a list of commonly used **MySQL CLI commands** along with their syntax 
 ---
 
 ## **1. Connecting to MySQL**
+
 ```sh
 mysql -u username -p  # Connect to MySQL with a password prompt
 mysql -u username -p -h host_name  # Connect to a remote MySQL server

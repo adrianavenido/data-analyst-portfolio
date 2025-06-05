@@ -510,7 +510,7 @@ plt.show()
 
 
 
-Great — let's dive in together as your data analytics coach.
+   Great — let's dive in together as your data analytics coach.
 
 We'll approach this like a real-world project from start to finish: **understanding the data**, **cleaning it**, **exploring it**, and **extracting meaningful business insights** that could drive action.
 
@@ -685,7 +685,6 @@ This will show:
 Once you’ve reviewed that output, tell me what you observe — and I’ll guide you on the next step.
 
 
-Perfect — that’s common for raw HR data.
 
 ### ✅ Step 3: Identify and clean column names
 
